@@ -16,7 +16,19 @@ using std::endl;
 
 //Takes the given Cstring, cstr, which
 //represents a temperature in Fahrenheit
-//and converts it to celcius.
+//and converts it to celcius using the 
+//strtod method in the header cstdlib.
+double c_ctof(const char* cstr)
+{
+	double return_value = 0.0;
+
+	return return_value;
+}
+
+//Takes the given Cstring, cstr, which
+//represents a temperature in Fahrenheit
+//and converts it to celcius using the 
+//stod method in the header string.
 double cpp_ftoc(const char* cstr)
 {
 	double return_value = 0.0;
