@@ -14,7 +14,7 @@ using std::strtod;
 using std::cout;
 using std::endl;
 
-//Takes the given Cstring, cstr, which
+//Takes the given C-string, cstr, which
 //represents a temperature in Fahrenheit
 //and converts it to celcius using the 
 //strtod method in the header cstdlib.
@@ -22,10 +22,17 @@ double c_ctof(const char* cstr)
 {
 	double return_value = 0.0;
 
+	return_value = strtod(cstr, nullptr);
+
+	//Modifies the double from fahrenheit
+	//to celcius.
+	return_value *= 9.0 / 5.0;
+	return_value += 32;
+
 	return return_value;
 }
 
-//Takes the given Cstring, cstr, which
+//Takes the given C-string, cstr, which
 //represents a temperature in Fahrenheit
 //and converts it to celcius using the 
 //stod method in the header string.
@@ -40,7 +47,7 @@ double cpp_ftoc(const char* cstr)
 
 	//Modifies the double from fahrenheit
 	//to celcius.
-	return_value *= 5.0 / 9.0;
+	return_value *= 9.0 / 5.0;
 	return_value += 32;
 
 	return return_value;
