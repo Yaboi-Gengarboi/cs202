@@ -2,6 +2,7 @@
 //Justyn P. Durnford
 //Created on 1/15/2020
 //Last Updated on 1/16/2020
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%200/Temperature
 
 #include <string>
 using std::string;
@@ -13,6 +14,9 @@ using std::strtod;
 #include <iostream>
 using std::cout;
 using std::endl;
+
+#include <stdexcept>
+using std::invalid_argument;
 
 //Takes the given C-string, cstr, which
 //represents a temperature in Fahrenheit
