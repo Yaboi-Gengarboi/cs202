@@ -13,7 +13,7 @@ double cpp_ftoc(const char* cstr)
 	return return_value;
 }
 
-int main()
+int main(int argc, char** argv)
 {
 	return 0;
 }
