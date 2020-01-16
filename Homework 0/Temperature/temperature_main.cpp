@@ -1,13 +1,13 @@
-//temp_main.cpp
+//temperature_main.cpp
 //Justyn P. Durnford
 //Created on 1/15/2020
-//Last Updated on 1/15/2020
+//Last Updated on 1/16/2020
 
 #include <string>
 using std::string;
 using std::stod;
 
-#include <cstring>
+#include <cstdlib>
 using std::strtod;
 
 #include <iostream>

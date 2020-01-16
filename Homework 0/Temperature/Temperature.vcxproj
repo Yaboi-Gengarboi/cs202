@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{AC37F982-6B7D-4EDD-BFCF-F0F81FCE2074}</ProjectGuid>
-    <RootNamespace>HW0Temperature</RootNamespace>
+    <ProjectGuid>{76CFF1B7-E9F3-4415-8321-9C0620EF8FAB}</ProjectGuid>
+    <RootNamespace>Temperature</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,7 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="temp_main.cpp" />
+    <ClCompile Include="temperature_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
