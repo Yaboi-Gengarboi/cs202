@@ -3,6 +3,16 @@
 //Created on 1/15/2020
 //Last Updated on 1/15/2020
 
+#include <string>
+using std::to_string;
+
+#include <cstring>
+using std::strtod;
+
+#include <iostream>
+using std::cout;
+using std::endl;
+
 //Takes the given Cstring, cstr, which
 //represents a temperature in fFahrenheit
 //and converts it to celcius.
