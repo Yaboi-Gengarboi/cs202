@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Created on 1/18/2020
 //Last Updated on 1/18/2020
-//
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%200/Fraction
 
 #include "Fraction.hpp"
 

@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Created on 12/14/2019
 //Last Updated on 1/18/2020
-//Found at https://github.com/Yaboi-Gengarboi/Misc/tree/master/JLib
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%200/Fraction
 
 #include "Fraction.hpp"
 
