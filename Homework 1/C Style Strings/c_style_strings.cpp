@@ -25,10 +25,7 @@ unsigned int cstr_size(const char* cstr)
 
 void test()
 {
-	const char* str1 = "Hello, world"; //Size: 12
-	const char* str2 = ""; //Size: 0
-	cout << cstr_size(str1) << endl;
-	cout << cstr_size(str2) << endl;
+	
 }
 
 int main()
