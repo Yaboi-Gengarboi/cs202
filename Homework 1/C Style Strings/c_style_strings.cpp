@@ -42,6 +42,16 @@ char* str_dup(const char* cstr)
 	return newcstr;
 }
 
+//Returns the first occurance of x within the C-string cstr. If it
+//cannot be found, this method will return -1.
+int find_x(const char* cstr, const char* x)
+{
+	int cstr_size = str_size(cstr);
+	int x_size = str_size(x);
+
+	return -1;
+}
+
 void test()
 {
 	const char* test_cstr = str_dup("Hello!");
