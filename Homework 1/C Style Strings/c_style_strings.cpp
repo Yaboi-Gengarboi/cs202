@@ -9,7 +9,7 @@ using std::cout;
 using std::endl;
 
 //Returns the length of the given C-string.
-unsigned int cstr_size(const char* cstr)
+unsigned int str_size(const char* cstr)
 {
 	unsigned int size = 0;
 
@@ -20,12 +20,33 @@ unsigned int cstr_size(const char* cstr)
 	while (cstr[size] != '\0')
 		++size;
 
-	return size;
+	//The \0 still counts as a character.
+	return size + 1;
+}
+
+//Dynamically allocates a copy of the given C-string on the heap. Calls
+//the str_size method to ensure enough memory is allocated.
+//IMPORTANT: If this method is used you MUST call delete[] on the pointer
+//when it is no longer used, or assign it to a smart pointer. Failure to
+//do so will result in a memory leak.
+char* str_dup(const char* cstr)
+{
+	//Creates a C-string on the heap with size equal to that of the
+	//given C-string, cstr.
+	char* newcstr = new char[str_size(cstr)];
+
+	//Loops through and copies each character of cstr to newcstr.
+	for (unsigned int i = 0; i < str_size(newcstr) - 1; ++i)
+		newcstr[i] = cstr[i];
+
+	return newcstr;
 }
 
 void test()
 {
-	
+	const char* test_cstr = str_dup("Hello!");
+	cout << test_cstr << endl;
+	delete[] test_cstr;
 }
 
 int main()
