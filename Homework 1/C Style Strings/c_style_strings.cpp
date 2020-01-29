@@ -24,12 +24,28 @@ unsigned int str_size(const char* cstr)
 	return size + 1;
 }
 
+//Returns true if the two given C-strings are equivelent.
+//Returns false otherwise.
+bool str_cmp(const char* cstr1, const char* cstr2)
+{
+	if (str_size(cstr1) == str_size(cstr2))
+	{
+		for (unsigned int i = 0; i < str_size(cstr1); ++i)
+		{
+			if (cstr1[i] != cstr2[i])
+				return false;
+		}
+		return true;
+	}
+	return false;
+}
+
 //Dynamically allocates a copy of the given C-string on the heap. Calls
 //the str_size method to ensure enough memory is allocated.
 //IMPORTANT: If this method is used you MUST call delete[] on the pointer
 //when it is no longer used, or assign it to a smart pointer. Failure to
 //do so will result in a memory leak.
-char* str_dup(const char* cstr)
+const char* str_dup(const char* cstr)
 {
 	//Creates a C-string on the heap with size equal to that of the
 	//given C-string, cstr.
@@ -46,17 +62,20 @@ char* str_dup(const char* cstr)
 //cannot be found, this method will return -1.
 int find_x(const char* cstr, const char* x)
 {
-	int cstr_size = str_size(cstr);
-	int x_size = str_size(x);
+	for (unsigned int i = 0; i < str_size(cstr) - str_size(x); ++i)
+	{
+		for (unsigned int p = str_size(cstr) - str_size(x); p < str_size(x); ++p)
+		{
+			
+		}
+	}
 
 	return -1;
 }
 
 void test()
 {
-	const char* test_cstr = str_dup("Hello!");
-	cout << test_cstr << endl;
-	delete[] test_cstr;
+	cout << find_x("Hello", "Hell") << endl;
 }
 
 int main()
