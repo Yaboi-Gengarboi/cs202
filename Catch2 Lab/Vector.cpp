@@ -100,7 +100,7 @@ void Vector::clear()
 	_z = 0;
 }
 
-double Vector::length()
+double Vector::magnitude()
 {
 	double length = 0.0;
 	length = pow(_x, 2) + pow(_y, 2) + pow(_z, 2);

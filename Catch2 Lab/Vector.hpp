@@ -55,7 +55,7 @@ public:
 	void clear();
 
 	//Returns the length or magnitude of the Vector.
-	double length();
+	double magnitude();
 
 	//Adds the given Vector vec onto the Vector.
 	void add(const Vector& vec);
