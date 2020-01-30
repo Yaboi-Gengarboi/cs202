@@ -9,6 +9,9 @@
 
 struct Hitbox_Circle
 {
+	//Hitbox ID
+	int ID = 0;
+
 	//Offsets of Hitbox origin
 	int x_off = 0;
 	int y_off = 0;
