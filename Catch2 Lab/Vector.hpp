@@ -91,4 +91,10 @@ double scal_proj(const Vector& vec1, const Vector& vec2);
 //Returns the vector projection of Vector vec1 onto vec2.
 Vector vec_proj(const Vector& vec1, const Vector& vec2);
 
+//Equality operator
+bool operator == (const Vector& vec1, const Vector& vec2);
+
+//Inequality operator
+bool operator != (const Vector& vec1, const Vector& vec2);
+
 #endif //#ifndef VECTOR_HPP

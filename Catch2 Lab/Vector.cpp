@@ -174,3 +174,13 @@ Vector cross_product(const Vector& vec1, const Vector& vec2)
 	Vector vec(x, y, z);
 	return vec;
 }
+
+bool operator == (const Vector& vec1, const Vector& vec2)
+{
+	return (vec1.get_x() == vec2.get_x()) && (vec1.get_y() == vec2.get_y()) && (vec1.get_z() == vec2.get_z());
+}
+
+bool operator != (const Vector& vec1, const Vector& vec2)
+{
+	return (vec1.get_x() != vec2.get_x()) || (vec1.get_y() != vec2.get_y()) || (vec1.get_z() != vec2.get_z());
+}
