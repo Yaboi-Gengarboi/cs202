@@ -23,5 +23,8 @@
     <ClCompile Include="Point.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="lab3_main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
