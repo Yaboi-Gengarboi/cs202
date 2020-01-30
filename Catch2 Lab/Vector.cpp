@@ -20,7 +20,7 @@ using std::to_string;
 using std::sqrt;
 using std::pow;
 
-Vector::Vector() {/* Default values are 0.0 */ }
+Vector::Vector() {/* Default values are 0.0 */}
 
 Vector::Vector(double x, double y, double z)
 {
@@ -110,12 +110,16 @@ double Vector::magnitude()
 
 void Vector::add(const Vector& vec)
 {
-
+	_x += vec.get_x();
+	_y += vec.get_y();
+	_z += vec.get_z();
 }
 
 void Vector::subtract(const Vector& vec)
 {
-
+	_x -= vec.get_x();
+	_y -= vec.get_y();
+	_z -= vec.get_z();
 }
 
 void Vector::scale(double scalar)

@@ -11,3 +11,27 @@
 //User created headers
 #include "Vector.hpp"
 
+TEST_CASE("Vector Tests")
+{
+	//Testing default constructor
+	Vector vec1;
+	REQUIRE(vec1.get_x() == 0);
+	REQUIRE(vec1.get_y() == 0);
+	REQUIRE(vec1.get_z() == 0);
+
+	//Testing primary constructor
+	Vector vec2(2.07, 5.43, 8.19);
+	REQUIRE(vec2.get_x() != 0);
+	REQUIRE(vec2.get_y() != 0);
+	REQUIRE(vec2.get_z() != 0);
+
+	//Testing copy constructor
+	Vector vec3 = vec2.copy();
+	REQUIRE(vec3.get_x() == vec2.get_x());
+	REQUIRE(vec3.get_y() == vec2.get_y());
+	REQUIRE(vec3.get_z() == vec2.get_z());
+
+	//Testing equality and inequality operators
+	REQUIRE(vec3 == vec2);
+	REQUIRE(vec3 != vec1);
+}
