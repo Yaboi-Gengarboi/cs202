@@ -140,6 +140,9 @@
   <ItemGroup>
     <ClInclude Include="Hitbox_Circle.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Linked_List_main.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
