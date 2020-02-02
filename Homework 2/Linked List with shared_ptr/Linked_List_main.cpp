@@ -42,18 +42,11 @@ void printHitbox_Circle(Hitbox_Circle& hb)
 //Prints hitbox_list.
 void printhitbox_list(list<Hitbox_Circle>& hitbox_list)
 {
-	Hitbox_Circle hb;
-	
-	if (!hitbox_list.empty())
+	auto iter = hitbox_list.begin();
+	while (iter != hitbox_list.end())
 	{
-		hb = hitbox_list.front();
-		printHitbox_Circle(hb);
-
-		while (hb.next != nullptr)
-		{
-			hb = *hb.next;
-			printHitbox_Circle(hb);
-		}
+		printHitbox_Circle(*iter);
+		++iter;
 	}
 }
 
@@ -157,8 +150,28 @@ int main()
 	hitbox_list.push_back(hb1);
 	hitbox_list.push_back(hb2);
 	hitbox_list.push_back(hb3);
-
+	
+	cout << "Current List: " << endl;
 	printhitbox_list(hitbox_list);
+	cout << endl;
+
+	cout << "Demonstrating FIFO" << endl;
+	Hitbox_Circle hb4 = hitbox_listFIFO(hitbox_list);
+	cout << "Removed first Hitbox" << endl;
+	cout << "Current List: " << endl;
+	printhitbox_list(hitbox_list);
+	cout << endl;
+
+	cout << "Demonstrating LIFO" << endl;
+	Hitbox_Circle hb5 = hitbox_listLIFO(hitbox_list);
+	cout << "Removed last Hitbox" << endl;
+	cout << "Current List: " << endl;
+	printhitbox_list(hitbox_list);
+	cout << endl;
+
+	cout << "Removed Hitboxes: " << endl;
+	printHitbox_Circle(hb4);
+	printHitbox_Circle(hb5);
 
 	return 0;
 }

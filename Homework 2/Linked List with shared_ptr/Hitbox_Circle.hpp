@@ -35,7 +35,7 @@ struct Hitbox_Circle
 	double angle = 0.0;
 
 	//Next Hitbox_Circle
-	std::shared_ptr<Hitbox_Circle> next;
+	std::shared_ptr<Hitbox_Circle> next = nullptr;
 };
 
 //Compares the hitboxes to see iif they are equal.
