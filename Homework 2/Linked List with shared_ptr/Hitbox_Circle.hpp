@@ -7,6 +7,8 @@
 #ifndef HITBOX_CIRCLE_HPP
 #define HITBOX_CIRCLE_HPP
 
+#include <memory>
+
 struct Hitbox_Circle
 {
 	//Hitbox ID
@@ -31,6 +33,13 @@ struct Hitbox_Circle
 
 	//Angle (In Degrees)
 	double angle = 0.0;
+
+	//Next Hitbox_Circle
+	std::shared_ptr<Hitbox_Circle> next;
 };
+
+//Compares the hitboxes to see iif they are equal.
+//Returns true if they are.
+bool operator == (const Hitbox_Circle& hb1, const Hitbox_Circle& hb2);
 
 #endif //#ifndef HITBOX_CIRCLE_HPP

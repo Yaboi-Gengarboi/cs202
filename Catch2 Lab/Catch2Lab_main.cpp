@@ -21,9 +21,9 @@ TEST_CASE("Vector Tests")
 
 	//Testing primary constructor
 	Vector vec2(2.07, 5.43, 8.19);
-	REQUIRE(vec2.get_x() != 0);
-	REQUIRE(vec2.get_y() != 0);
-	REQUIRE(vec2.get_z() != 0);
+	REQUIRE(vec2.get_x() == 2.07);
+	REQUIRE(vec2.get_y() == 5.43);
+	REQUIRE(vec2.get_z() == 8.19);
 
 	//Testing copy constructor
 	Vector vec3 = vec2.copy();
