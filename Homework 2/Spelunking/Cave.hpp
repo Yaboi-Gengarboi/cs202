@@ -84,7 +84,7 @@ class Cave
 		void saveCave() const;
 
 		//Loads the cave layout from the txt file.
-		void loadCave() const;
+		void loadCave();
 };
 
 #endif //CAVE_HPP

@@ -11,6 +11,8 @@
 #include <string>
 using std::string;
 using std::size_t;
+using std::getline;
+using std::stoi;
 
 #include <fstream>
 using std::ifstream;
@@ -18,6 +20,10 @@ using std::ofstream;
 
 #include <memory>
 using std::shared_ptr;
+using std::make_shared;
+
+#include <array>
+using std::array;
 
 #include <vector>
 using std::vector;
@@ -131,6 +137,93 @@ void Cave::printShortDesc(const Room& room) const
 void Cave::printLongDesc(const Room& room) const
 {
 	cout << room.long_desc << endl;
+}
+
+void Cave::saveCave() const
+{
+	ofstream fout("Cave.txt");
+
+	for (auto room : rooms)
+	{
+		fout << "ROOM" << endl;
+		fout << room.ID << endl;
+		fout << room.short_desc << endl;
+		fout << room.long_desc << endl;
+		
+		if (room.room_up != nullptr)
+			fout << room.room_up->ID << endl;
+		else
+			fout << -1 << endl;
+
+		if (room.room_down != nullptr)
+			fout << room.room_down->ID << endl;
+		else
+			fout << -1 << endl;
+
+		if (room.room_left != nullptr)
+			fout << room.room_left ->ID << endl;
+		else
+			fout << -1 << endl;
+		if (room.room_right != nullptr)
+			fout << room.room_right->ID << endl;
+		else
+			fout << -1 << endl;
+	}
+
+	fout << "END" << endl;
+}
+
+void Cave::loadCave()
+{
+	ifstream fin("Cave.txt");
+	string line;
+	vector<array<size_t, 4>> room_IDs;
+	size_t index = 0;
+
+	while (line != "END")
+	{
+		getline(fin, line);
+
+		if (line != "END")
+		{
+			Room room;
+			room.ID = stoi(line);
+
+			getline(fin, line);
+			room_IDs[index][0] = stoi(line);
+
+			getline(fin, line);
+			room_IDs[index][1] = stoi(line);
+
+			getline(fin, line);
+			room_IDs[index][2] = stoi(line);
+
+			getline(fin, line);
+			room_IDs[index][3] = stoi(line);
+
+			++index;
+		}
+	}
+
+	for (size_t i = 0; i < room_IDs.size(); ++i)
+	{
+		if (room_IDs[i][0] != -1)
+		{
+			rooms[i].room_up = make_shared<Room>(rooms[i]);
+		}
+		if (room_IDs[i][1] != -1)
+		{
+			rooms[i].room_down = make_shared<Room>(rooms[i]);
+		}
+		if (room_IDs[i][2] != -1)
+		{
+			rooms[i].room_left = make_shared<Room>(rooms[i]);
+		}
+		if (room_IDs[i][3] != -1)
+		{
+			rooms[i].room_right = make_shared<Room>(rooms[i]);
+		}
+	}
 }
 
 void Cave::display() const
