@@ -15,7 +15,10 @@
 struct Room
 {
 	//Room Identification
-	std::size_t room_ID;
+	std::size_t ID;
+
+	//Has this room been visited?
+	bool visited;
 
 	//Adjacent rooms.
 	std::shared_ptr<Room> room_up;
@@ -37,9 +40,15 @@ struct Room
 class Cave
 {
 	std::vector<Room> rooms;
-	std::size_t current_room;
+	Room current_room;
 
 	public:
+
+		//Constructor
+		Cave();
+
+		//Adds the room to rooms.
+		void addRoom(const Room& room);
 
 		//Returns the amount of rooms in the cave.
 		std::size_t roomCount() const;
@@ -47,17 +56,29 @@ class Cave
 		//Returns the Room the player is in.
 		Room getCurrentRoom() const;
 
-		//Moves the player to the given room if it exists and
-		//is adjacent to the current soom. Normally a 
-		//non-adjacent room cannot be accessed, but if
-		//bool ignoreAdjacent is true, it will be allowed.
-		void moveToRome(const std::size_t& room, const bool& ignoreAdjacent);
+		//Sets the Room the player is in.
+		void setCurrentRoom(const Room& room);
+
+		//Returns true if the given room is adjacent to current_room.
+		bool isRoomAdjacent(const Room& room) const;
+
+		//Moves the player to the adjecent room if it exists and
+		//is adjacent to the current soom.
+		//1: room_up
+		//2: room_down
+		//3: room_left
+		//4: room_right
+		void move(const unsigned char& room);
 
 		//Prints the short_desc of the given room.
-		void printShortDesc(const std::size_t& room) const;
+		void printShortDesc(const Room& room) const;
 
 		//Prints the long_desc of the given room.
-		void printLongDesc(int room) const;
+		void printLongDesc(const Room& room) const;
+
+		//Prints characters to the iostream effectively
+		//displaying current_room.
+		void display() const;
 
 		//Saves the cave layout to the txt file.
 		void saveCave() const;
