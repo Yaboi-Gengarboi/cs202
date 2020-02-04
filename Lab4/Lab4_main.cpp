@@ -20,19 +20,26 @@ using std::ofstream;
 
 //Gets every line from the txt file tied to the ifstream
 //and prints it to the terminal window.
-void readFile(ifstream& fin)
+//Returns the index of the last line read.
+unsigned int readFile(ifstream& fin)
 {
 	string line;
+	unsigned int index = 0;
 
 	while (getline(fin, line))
+	{
 		cout << line << endl;
+		++index;
+	}
+
+	return index;
 }
 
 int main()
 {
 	ifstream fin("Lab4txt.txt");
 	if (fin)
-		readFile(fin);
+		cout << readFile(fin) << endl;
 
 	return 0;
 }
