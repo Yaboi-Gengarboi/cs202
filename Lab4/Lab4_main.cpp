@@ -2,9 +2,37 @@
 //Justyn P. Durnford
 //Created on 2/4/2020
 //Last Updated on 2/4/2020
-//
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/Lab4
+
+//Standard Library
+#include <string>
+using std::string;
+using std::getline;
+
+#include <iostream>
+using std::cout;
+using std::cin;
+using std::endl;
+
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
+
+//Gets every line from the txt file tied to the ifstream
+//and prints it to the terminal window.
+void readFile(ifstream& fin)
+{
+	string line;
+
+	while (getline(fin, line))
+		cout << line << endl;
+}
 
 int main()
 {
+	ifstream fin("Lab4txt.txt");
+	if (fin)
+		readFile(fin);
+
 	return 0;
 }
