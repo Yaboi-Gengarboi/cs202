@@ -1,10 +1,14 @@
-LINE 1
-LINE 2
-LINE 3
-LINE 4
-LINE 5
-NEWLINE
-NEWLINE
-NEWLINE
-NEWLINE
-NEWLINE
+hey
+hey
+hey
+hey
+hey
+hey
+hello
+hello
+hello
+hello
+hello
+hello
+hello
+end

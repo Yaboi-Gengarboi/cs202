@@ -9,6 +9,9 @@
 using std::string;
 using std::getline;
 
+#include <sstream>
+using std::istringstream;
+
 #include <iostream>
 using std::cout;
 using std::cin;
@@ -27,8 +30,9 @@ unsigned int readFile(ifstream& fin)
 	string line;
 	unsigned int index = 0;
 
-	while (getline(fin, line))
+	while (fin.good())
 	{
+		getline(fin, line);
 		cout << line << endl;
 		++index;
 	}
@@ -38,7 +42,7 @@ unsigned int readFile(ifstream& fin)
 
 //Writes the line to the txt file tied to the ofstream n
 //times.
-void writeToFileN(ofstream& fout, const string& line, const unsigned int& n)
+void writeToFileN(ofstream& fout, const string& line, unsigned int n)
 {
 	for (unsigned int i = 0; i < n; ++i)
 		fout << line << endl;
@@ -48,12 +52,34 @@ int main()
 {
 	ifstream fin("Lab4txt.txt");
 	unsigned int begin_index = 0;
+	string str = "";
+	
+	bool proceed = false;
+
+	string line = "";
+	int n = 0;
 
 	if (fin)
 		begin_index = readFile(fin);
 
+	cout << "Enter some text." << endl;
+	getline(cin, line);
+
+	while (!proceed)
+	{
+		cout << "Enter a positive integer." << endl;
+		getline(cin, str);
+		istringstream istr(str);
+		istr >> n;
+
+		if (!istr || n < 0)
+			cout << "Invalid input. Try again." << endl;
+		else
+			proceed = true;
+	}
+
 	ofstream fout("Lab4txt.txt", ios_base::app);
-	writeToFileN(fout, "NEWLINE", 5);
+	writeToFileN(fout, line, n);
 
 	return 0;
 }
