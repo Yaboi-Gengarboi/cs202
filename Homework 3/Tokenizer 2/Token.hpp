@@ -10,34 +10,11 @@
 
 struct token
 {
-	std::string type;
+	std::string value;
 	std::size_t column;
 	std::size_t row;
-};
 
-struct char_token : token
-{
-	char value;
-};
-
-struct str_token : token
-{
-	std::string value;
-};
-
-struct int_token : token
-{
-	int value = 0;
-};
-
-struct double_token : token
-{
-	double value = 0.0;
-};
-
-struct identifier_token : token
-{
-	std::string value = "";
+	token(const std::string& str, const std::size_t& c, const std::size_t& r);
 };
 
 #endif //TOKEN_HPP

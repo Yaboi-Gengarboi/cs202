@@ -8,8 +8,7 @@
 #include <string>
 using std::string;
 using std::size_t;
-using std::stoi;
-using std::stod;
+using std::to_string;
 
 #include <sstream>
 using std::istringstream;
@@ -17,71 +16,61 @@ using std::istringstream;
 #include <vector>
 using std::vector;
 
-#include <cctype>
-using std::isspace;
-
 #include <iostream>
 using std::cout;
 using std::cin;
 using std::endl;
 
-#include <stdexcept>
-using std::invalid_argument;
-
-token get_token(const string& str, const size_t& col, const size_t& row)
+token::token(const std::string& str, const std::size_t& c, const std::size_t& r)
 {
-	bool proceed = true;
-
-	try
-	{
-		int value = stoi(str);
-		int_token t;
-		t.type = "Integer";
-		t.column = col;
-		t.row = row;
-		t.value = value;
-		return t;
-	}
-	catch (invalid_argument& ia) {/* Proceed to next token type */}
-
-	try
-	{
-		double value = stod(str);
-		double_token t;
-		t.type = "Decimal";
-		t.column = col;
-		t.row = row;
-		t.value = value;
-		return t;
-	}
-	catch (invalid_argument & ia) {/* Proceed to next token type */ }
-
-
+	value = str;
+	column = c;
+	row = r;
 }
 
-bool line_to_tokens(vector<token>& tokens, const string& line, const size_t& row)
+void print_token(const token& t)
+{
+	cout << "Row " << t.row;
+	cout << ", Column " << t.column;
+	cout << ": \"" << t.value;
+	cout << "\"" << endl;
+}
+
+void print_tokens(const vector<token>& tokens)
+{
+	for (const token& t : tokens)
+		print_token(t);
+}
+
+void line_to_tokens(vector<token>& tokens, const string& line, const size_t& row)
 {
 	size_t col;
 	string str;
 	istringstream iline(line);
 
-	while (!iline.eof())
+	if (!line.empty())
 	{
-		iline >> str;
-
-		if (!iline.eof())
+		while (!iline.eof())
 		{
-			col = line.find(str);
-			token t = get_token(str, col, row);
+			iline >> str;
+
+			if (!iline.eof())
+			{
+				col = line.find(str) + 1;
+				token t(str, col, row);
+				tokens.push_back(t);
+			}
 		}
 	}
-
-	return true;
+	else //line.empty()
+	{
+		token t("Empty Line", 1, row);
+		tokens.push_back(t);
+	}
 }
 
 int main()
 {
-	
 
 	return 0;
 }
