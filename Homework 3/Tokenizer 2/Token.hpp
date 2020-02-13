@@ -11,6 +11,13 @@
 struct token
 {
 	std::string type;
+	std::size_t column;
+	std::size_t row;
+};
+
+struct char_token : token
+{
+	char value;
 };
 
 struct str_token : token

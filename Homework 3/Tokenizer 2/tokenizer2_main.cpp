@@ -7,6 +7,9 @@
 
 #include <string>
 using std::string;
+using std::size_t;
+using std::stoi;
+using std::stod;
 
 #include <sstream>
 using std::istringstream;
@@ -22,36 +25,63 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-/*
-token get_token(const string& str)
+#include <stdexcept>
+using std::invalid_argument;
+
+token get_token(const string& str, const size_t& col, const size_t& row)
 {
+	bool proceed = true;
+
+	try
+	{
+		int value = stoi(str);
+		int_token t;
+		t.type = "Integer";
+		t.column = col;
+		t.row = row;
+		t.value = value;
+		return t;
+	}
+	catch (invalid_argument& ia) {/* Proceed to next token type */}
+
+	try
+	{
+		double value = stod(str);
+		double_token t;
+		t.type = "Decimal";
+		t.column = col;
+		t.row = row;
+		t.value = value;
+		return t;
+	}
+	catch (invalid_argument & ia) {/* Proceed to next token type */ }
+
 
 }
-*/
 
-vector<string> str_to_tokens(const string& line)
+bool line_to_tokens(vector<token>& tokens, const string& line, const size_t& row)
 {
+	size_t col;
 	string str;
-	istringstream istr(line);
-	vector<string> tokens;
+	istringstream iline(line);
 
-	while (!istr.eof())
+	while (!iline.eof())
 	{
-		istr >> str;
-		tokens.push_back(str);
+		iline >> str;
+
+		if (!iline.eof())
+		{
+			col = line.find(str);
+			token t = get_token(str, col, row);
+		}
 	}
 
-	return tokens;
+	return true;
 }
 
 int main()
 {
-	vector<string> tokens = str_to_tokens("Hey there mister!");
-
-	for (string& str : tokens)
-	{
-		cout << str << endl;
-	}
+	
 
 	return 0;
 }
