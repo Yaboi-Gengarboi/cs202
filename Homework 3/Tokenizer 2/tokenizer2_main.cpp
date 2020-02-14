@@ -10,11 +10,18 @@ using std::string;
 using std::size_t;
 using std::to_string;
 
+#include <cstring>
+using std::strstr;
+
 #include <sstream>
 using std::istringstream;
 
 #include <vector>
 using std::vector;
+
+#include <fstream>
+using std::ifstream;
+using std::ofstream;
 
 #include <iostream>
 using std::cout;
@@ -69,8 +76,24 @@ void line_to_tokens(vector<token>& tokens, const string& line, const size_t& row
 	}
 }
 
-int main()
+bool does_file_exist(const char* file)
 {
+	ifstream ifile(file);
+	return ifile.good();
+}
+
+int main(int argc, char** argv)
+{
+	for (int i = 0; i < argc; ++i)
+	{
+		if (strstr(argv[i], ".txt") != nullptr)
+		{
+			if (does_file_exist(argv[i]))
+			{
+
+			}
+		}
+	}
 
 	return 0;
 }
