@@ -9,6 +9,7 @@
 using std::string;
 using std::size_t;
 using std::to_string;
+using std::getline;
 
 #include <cstring>
 using std::strstr;
@@ -61,12 +62,9 @@ void line_to_tokens(vector<token>& tokens, const string& line, const size_t& row
 		{
 			iline >> str;
 
-			if (!iline.eof())
-			{
-				col = line.find(str) + 1;
-				token t(str, col, row);
-				tokens.push_back(t);
-			}
+			col = line.find(str) + 1;
+			token t(str, col, row);
+			tokens.push_back(t);
 		}
 	}
 	else //line.empty()
@@ -82,18 +80,78 @@ bool does_file_exist(const char* file)
 	return ifile.good();
 }
 
+vector<string> file_to_lines(const char* file)
+{
+	ifstream ifile(file);
+	string line;
+	vector<string> lines;
+
+	while (!ifile.eof())
+	{
+		getline(ifile, line);
+
+		if (!ifile.eof())
+		{
+			lines.push_back(line);
+		}
+	}
+	
+	return lines;
+}
+
+vector<string> get_input()
+{
+	vector<string> lines;
+	string line;
+	bool proceed = false;
+
+	while (!proceed)
+	{
+		cout << "Enter some text. Type END to stop." << endl;
+		getline(cin, line);
+
+		if (line != "END")
+		{
+			lines.push_back(line);
+		}
+		else
+			proceed = true;
+	}
+
+	return lines;
+}
+
 int main(int argc, char** argv)
 {
+	vector<string> lines;
+	vector<token> tokens;
+
 	for (int i = 0; i < argc; ++i)
 	{
 		if (strstr(argv[i], ".txt") != nullptr)
 		{
 			if (does_file_exist(argv[i]))
 			{
+				lines = file_to_lines(argv[i]);
 
+				for (size_t i = 0; i < lines.size(); ++i)
+				{
+					line_to_tokens(tokens, lines[i], i + 1);
+				}
+
+				print_tokens(tokens);
+				return 0;
 			}
 		}
 	}
 
+	lines = get_input();
+
+	for (size_t i = 0; i < lines.size(); ++i)
+	{
+		line_to_tokens(tokens, lines[i], i + 1);
+	}
+
+	print_tokens(tokens);
 	return 0;
 }
