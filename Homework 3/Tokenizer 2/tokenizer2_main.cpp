@@ -1,7 +1,8 @@
 //tokenizer2_main.cpp
 //Justyn Durnford
 //Created on 2/10/2020
-//Last Updated on 2/10/2020
+//Last Updated on 2/15/2020
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%203/Tokenizer%202
 
 #include "Token.hpp"
 
@@ -125,6 +126,7 @@ int main(int argc, char** argv)
 {
 	vector<string> lines;
 	vector<token> tokens;
+	bool io = true;
 
 	for (int i = 0; i < argc; ++i)
 	{
@@ -132,6 +134,7 @@ int main(int argc, char** argv)
 		{
 			if (does_file_exist(argv[i]))
 			{
+				io = false;
 				lines = file_to_lines(argv[i]);
 
 				for (size_t i = 0; i < lines.size(); ++i)
@@ -145,13 +148,18 @@ int main(int argc, char** argv)
 		}
 	}
 
-	lines = get_input();
-
-	for (size_t i = 0; i < lines.size(); ++i)
+	if (io)
 	{
-		line_to_tokens(tokens, lines[i], i + 1);
+		lines = get_input();
+
+		for (size_t i = 0; i < lines.size(); ++i)
+		{
+			line_to_tokens(tokens, lines[i], i + 1);
+		}
+
+		print_tokens(tokens);
+		return 0;
 	}
 
-	print_tokens(tokens);
 	return 0;
 }
