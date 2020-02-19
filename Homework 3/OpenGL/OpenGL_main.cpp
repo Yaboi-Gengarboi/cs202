@@ -2,7 +2,8 @@
 //Justyn Durnford
 //Created on 2/16/2020
 //Last Updated on 2/19/2020
-//
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%203/OpenGL
+//Based on source code found at:
 //https://learnopengl.com/code_viewer.php?code=getting-started/hello-triangle-exercise1
 
 #include <GL/glew.h>
