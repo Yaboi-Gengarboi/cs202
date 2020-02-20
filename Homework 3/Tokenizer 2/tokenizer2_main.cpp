@@ -91,10 +91,7 @@ vector<string> file_to_lines(const char* file)
 	{
 		getline(ifile, line);
 
-		if (!ifile.eof())
-		{
-			lines.push_back(line);
-		}
+		lines.push_back(line);
 	}
 	
 	return lines;
