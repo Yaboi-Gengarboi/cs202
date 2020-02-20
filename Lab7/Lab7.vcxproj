@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{AEF81C9F-BC62-4C26-BC16-39F7F091455E}</ProjectGuid>
-    <RootNamespace>HuntTheWumpus</RootNamespace>
+    <ProjectGuid>{A7E89D47-D01D-4A2B-9307-42944A564FAA}</ProjectGuid>
+    <RootNamespace>Lab7</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -74,6 +74,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>E:\vcpkg\installed\x64-windows\include;$(IncludePath)</IncludePath>
+    <LibraryPath>E:\vcpkg\installed\x64-windows\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -138,13 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Monster.hpp" />
-    <ClInclude Include="Player.hpp" />
-    <ClInclude Include="Room.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="main_file.cpp" />
-    <ClCompile Include="Room.cpp" />
+    <ClCompile Include="Lab7GLFW.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
