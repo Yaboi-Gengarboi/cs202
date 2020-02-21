@@ -8,6 +8,7 @@
 
 #include <memory>
 using std::shared_ptr;
+using std::make_shared;
 
 Room::Room(int id, const char* short_desc, const char* long_desc)
 {
@@ -46,32 +47,47 @@ shared_ptr<Room> Room::get_Room_down() const
 	return _down;
 }
 
-void Room::set_Room_up(const shared_ptr<Room>& room)
+void Room::set_Room_up(Room& room)
 {
-
+	_up = make_shared<Room>(room);
 }
 
-void Room::set_Room_left(const shared_ptr<Room>& room)
+void Room::set_Room_left(Room& room)
 {
-
+	_left = make_shared<Room>(room);
 }
 
-void Room::set_Room_right(const shared_ptr<Room>& room)
+void Room::set_Room_right(Room& room)
 {
-
+	_right = make_shared<Room>(room);
 }
 
-void Room::set_Room_down(const shared_ptr<Room>& room)
+void Room::set_Room_down(Room& room)
 {
-
+	_down = make_shared<Room>(room);
 }
 
 bool Room::get_has_visited() const
 {
-
+	return _has_visited;
 }
 
-void Room::set_has_visited()
+void Room::set_has_visited(bool has_visited)
 {
+	_has_visited = has_visited;
+}
 
+int Room::get_id() const
+{
+	return _id;
+}
+
+const char* Room::get_short_desc() const
+{
+	return _short_desc;
+}
+
+const char* Room::get_long_desc() const
+{
+	return _long_desc;
 }

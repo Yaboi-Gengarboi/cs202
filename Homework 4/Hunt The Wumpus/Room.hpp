@@ -13,10 +13,10 @@ class Room
 {
 	int _id;
 
-	std::shared_ptr<Room> _up;
-	std::shared_ptr<Room> _left;
-	std::shared_ptr<Room> _right;
-	std::shared_ptr<Room> _down;
+	std::shared_ptr<Room> _up = nullptr;
+	std::shared_ptr<Room> _left = nullptr;
+	std::shared_ptr<Room> _right = nullptr;
+	std::shared_ptr<Room> _down = nullptr;
 
 	const char* _short_desc;
 	const char* _long_desc;
@@ -34,13 +34,13 @@ class Room
 		std::shared_ptr<Room> get_Room_right() const;
 		std::shared_ptr<Room> get_Room_down() const;
 
-		void set_Room_up(const std::shared_ptr<Room>& room);
-		void set_Room_left(const std::shared_ptr<Room>& room);
-		void set_Room_right(const std::shared_ptr<Room>& room);
-		void set_Room_down(const std::shared_ptr<Room>& room);
+		void set_Room_up(Room& room);
+		void set_Room_left(Room& room);
+		void set_Room_right(Room& room);
+		void set_Room_down(Room& room);
 
 		bool get_has_visited() const;
-		void set_has_visited();
+		void set_has_visited(bool has_visited);
 
 		int get_id() const;
 
