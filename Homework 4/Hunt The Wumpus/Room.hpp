@@ -1,7 +1,7 @@
 //Room.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last Updated on 2/20/2020
+//Last Updated on 2/25/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #ifndef ROOM_HPP
@@ -18,8 +18,8 @@ class Room
 	std::shared_ptr<Room> _right = nullptr;
 	std::shared_ptr<Room> _down = nullptr;
 
-	const char* _short_desc;
-	const char* _long_desc;
+	const char* _short_desc = nullptr;
+	const char* _long_desc = nullptr;
 
 	bool _has_visited;
 
@@ -34,10 +34,10 @@ class Room
 		std::shared_ptr<Room> get_Room_right() const;
 		std::shared_ptr<Room> get_Room_down() const;
 
-		void set_Room_up(Room& room);
-		void set_Room_left(Room& room);
-		void set_Room_right(Room& room);
-		void set_Room_down(Room& room);
+		void set_Room_up(std::shared_ptr<Room>& room);
+		void set_Room_left(std::shared_ptr<Room>& room);
+		void set_Room_right(std::shared_ptr<Room>& room);
+		void set_Room_down(std::shared_ptr<Room>& room);
 
 		bool get_has_visited() const;
 		void set_has_visited(bool has_visited);
