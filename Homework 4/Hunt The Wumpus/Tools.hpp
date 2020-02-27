@@ -1,7 +1,7 @@
 //Tools.hpp
 //Justyn Durnford
 //Created on 2/25/2020
-//Last updated on 2/25/2020
+//Last updated on 2/27/2020
 //Contains functions and information of general use
 //to be used in other files.
 //
@@ -14,7 +14,6 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include <bitset>
 
 //Opens an ifstream for the given file and determines
 //if the file exists using the good() member function.
@@ -22,6 +21,7 @@
 //RETURNS FALSE OTHERWISE
 bool does_file_exist(const char* file_str);
 
-
+//
+void reverse_string(std::string& str);
 
 #endif //TOOLS_HPP

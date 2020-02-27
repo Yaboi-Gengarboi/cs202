@@ -16,9 +16,16 @@ class variable_bitset
 {
 	std::vector<std::bitset<8>> _bits;
 
-	std::size_t _size = 0;
+	std::size_t _subset_index = 0;
+	std::size_t _bit_index = 0;
 
 	public:
+
+		variable_bitset();
+
+		~variable_bitset();
+
+		void add_bit(bool state);
 
 		bool get_bit(const std::size_t& index) const;
 

@@ -5,6 +5,7 @@
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #include "Room.hpp"
+#include "Variable_Bitset.hpp"
 #include "Monster.hpp"
 #include "Player.hpp"
 
@@ -16,9 +17,21 @@ using std::make_unique;
 using std::vector;
 
 #include <string>
+using std::size_t;
 using std::string;
+
+#include <iostream>
+using std::cout;
+using std::endl;
 
 int main()
 {
+	variable_bitset bits;
+
+	for (size_t i = 0; i < 20; ++i)
+	{
+		bits.add_bit(true);
+	}
+
 	return 0;
 }
