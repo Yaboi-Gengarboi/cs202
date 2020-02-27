@@ -2,7 +2,7 @@
 //Justyn Durnford
 //Created on 2/27/2020
 //Last Updated on 2/27/2020
-//
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/CS202LabStaticLibrary
 
 #ifndef JSPACE_HPP
 #define JSPACE_HPP

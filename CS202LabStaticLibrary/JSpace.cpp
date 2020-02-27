@@ -2,7 +2,7 @@
 //Justyn P. Durnford
 //Created on 2/27/2020
 //Last Updated on 2/27/2020
-//https://github.com/Yaboi-Gengarboi/Misc/tree/master/JLib
+//https://github.com/Yaboi-Gengarboi/cs202/tree/master/CS202LabStaticLibrary
 
 #include "pch.h"
 #include "framework.h"
