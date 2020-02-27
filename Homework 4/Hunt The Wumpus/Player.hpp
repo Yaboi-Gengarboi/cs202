@@ -1,7 +1,7 @@
 //Player.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last Updated on 2/25/2020
+//Last updated on 2/25/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #ifndef PLAYER_HPP
@@ -10,10 +10,11 @@
 #include "Room.hpp"
 
 #include <memory>
+#include <string>
 
 class Player
 {
-	const char* _name = nullptr;
+	std::string _name;
 
 	int _health;
 
@@ -22,21 +23,21 @@ class Player
 public:
 
 	Player();
-	Player(const char* name, int health, std::shared_ptr<Room> current_room);
+	Player(const std::string& name, int health, const std::shared_ptr<Room>& current_room);
 
 	~Player();
 
-	const char* get_name();
+	std::string get_name() const;
 
-	int get_health();
+	int get_health() const;
 
 	void damage(int health);
 
 	void heal(int health);
 
-	std::shared_ptr<Room> get_current_room();
+	std::shared_ptr<Room> get_current_room() const;
 
-	void set_current_room(std::shared_ptr<Room>& room);
+	void set_current_room(const std::shared_ptr<Room>& room);
 
 
 

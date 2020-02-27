@@ -1,7 +1,7 @@
 //Room.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last Updated on 2/25/2020
+//Last updated on 2/25/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #include "Room.hpp"
@@ -10,7 +10,10 @@
 using std::shared_ptr;
 using std::make_shared;
 
-Room::Room(int id, const char* short_desc, const char* long_desc)
+#include <string>
+using std::string;
+
+Room::Room(int id, string desc)
 {
 	_id = id;
 
@@ -19,8 +22,7 @@ Room::Room(int id, const char* short_desc, const char* long_desc)
 	_right = nullptr;
 	_down = nullptr;
 
-	_short_desc = short_desc;
-	_long_desc = long_desc;
+	_desc = desc;
 
 	_has_visited = false;
 }
@@ -47,22 +49,22 @@ shared_ptr<Room> Room::get_Room_down() const
 	return _down;
 }
 
-void Room::set_Room_up(shared_ptr<Room>& room)
+void Room::set_Room_up(const Room& room)
 {
 	_up = make_shared<Room>(room);
 }
 
-void Room::set_Room_left(shared_ptr<Room>& room)
+void Room::set_Room_left(const Room& room)
 {
 	_left = make_shared<Room>(room);
 }
 
-void Room::set_Room_right(shared_ptr<Room>& room)
+void Room::set_Room_right(const Room& room)
 {
 	_right = make_shared<Room>(room);
 }
 
-void Room::set_Room_down(shared_ptr<Room>& room)
+void Room::set_Room_down(const Room& room)
 {
 	_down = make_shared<Room>(room);
 }
@@ -82,12 +84,7 @@ int Room::get_id() const
 	return _id;
 }
 
-const char* Room::get_short_desc() const
+string Room::get_desc() const
 {
-	return _short_desc;
-}
-
-const char* Room::get_long_desc() const
-{
-	return _long_desc;
+	return _desc;
 }
