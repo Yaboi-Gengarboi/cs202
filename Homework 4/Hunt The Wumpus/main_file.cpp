@@ -5,9 +5,9 @@
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #include "Room.hpp"
-#include "Variable_Bitset.hpp"
 #include "Monster.hpp"
 #include "Player.hpp"
+#include "Tools.hpp"
 
 #include <memory>
 using std::shared_ptr;
@@ -26,11 +26,9 @@ using std::endl;
 
 int main()
 {
-	variable_bitset bits;
-
-	for (size_t i = 0; i < 20; ++i)
+	for (int i = 0; i < 200; ++i)
 	{
-		bits.add_bit(true);
+		cout << rand_int_between(1, 20) << endl;
 	}
 
 	return 0;

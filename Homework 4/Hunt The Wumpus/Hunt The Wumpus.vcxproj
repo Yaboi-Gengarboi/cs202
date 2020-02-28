@@ -142,13 +142,11 @@
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Room.hpp" />
     <ClInclude Include="Tools.hpp" />
-    <ClInclude Include="Variable_Bitset.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main_file.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Tools.cpp" />
-    <ClCompile Include="Variable_Bitset.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

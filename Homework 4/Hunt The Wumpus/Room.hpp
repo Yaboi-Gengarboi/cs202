@@ -24,7 +24,8 @@ class Room
 	//Description of the room.
 	std::string _desc;
 
-	//Keeps track of whether
+	//Keeps track of whether or not the player has
+	//visited the room.
 	bool _has_visited;
 
 	public:
