@@ -10,10 +10,14 @@
 using std::shared_ptr;
 using std::make_shared;
 
-#include <string>
-using std::string;
+#include <bitset>
+using std::bitset;
 
-Room::Room(int id, string desc)
+bitset<240> roomFlags;
+
+Room::Room() {}
+
+Room::Room(int id)
 {
 	_id = id;
 
@@ -21,10 +25,6 @@ Room::Room(int id, string desc)
 	_left = nullptr;
 	_right = nullptr;
 	_down = nullptr;
-
-	_desc = desc;
-
-	_has_visited = false;
 }
 
 Room::~Room() {/* Destructor */}
@@ -71,20 +71,15 @@ void Room::set_Room_down(const Room& room)
 
 bool Room::get_has_visited() const
 {
-	return _has_visited;
+	return roomFlags[_id];
 }
 
-void Room::set_has_visited(bool has_visited)
+void Room::set_has_visited(bool hasVisited)
 {
-	_has_visited = has_visited;
+	roomFlags[_id] = hasVisited;
 }
 
 int Room::get_id() const
 {
 	return _id;
-}
-
-string Room::get_desc() const
-{
-	return _desc;
 }

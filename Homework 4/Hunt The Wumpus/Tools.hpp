@@ -11,14 +11,8 @@
 
 #include "Room.hpp"
 
-//Returns a randomly generated number using the xorshift
-//method. Has a period of 2^128 - 1.
-unsigned int xor128();
-
-//Uses the xor128 function to generate a random number
-//between and including the bounds given by low and
-//high.
-unsigned int rand_int_between(int low, int high);
+//
+int rand_int_between(int low, int high);
 
 //Opens an ifstream for the given file and determines
 //if the file exists using the good() member function.

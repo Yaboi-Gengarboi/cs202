@@ -11,27 +11,21 @@
 #include <fstream>
 using std::ifstream;
 
-unsigned int xor128()
+#include <vector>
+using std::vector;
+
+#include <random>
+using std::random_device;
+using std::default_random_engine;
+using std::uniform_int_distribution;
+
+random_device rDev;
+default_random_engine engine(rDev());
+
+int rand_int_between(int low, int high)
 {
-	static unsigned int x = 123456789;
-	static unsigned int y = 362436069;
-	static unsigned int z = 521288629;
-	static unsigned int w = 88675123;
-
-	unsigned int t = 0;
-
-	t = x ^ (x << 11);
-	x = y;
-	y = z;
-	z = w;
-
-	w = w ^ (w >> 19) ^ (t ^ (t >> 8));
-	return w;
-}
-
-unsigned int rand_int_between(int low, int high)
-{
-	return xor128() % high + low;
+	uniform_int_distribution<int> uniform_dist(low, high);
+	return uniform_dist(engine);
 }
 
 bool does_file_exist(const char* file)

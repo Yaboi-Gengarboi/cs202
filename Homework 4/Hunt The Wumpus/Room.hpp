@@ -9,6 +9,9 @@
 
 #include <memory>
 #include <string>
+#include <bitset>
+
+extern std::bitset<240> roomFlags;
 
 class Room
 {
@@ -21,16 +24,11 @@ class Room
 	std::shared_ptr<Room> _right = nullptr;
 	std::shared_ptr<Room> _down = nullptr;
 
-	//Description of the room.
-	std::string _desc;
-
-	//Keeps track of whether or not the player has
-	//visited the room.
-	bool _has_visited;
-
 	public:
 
-		Room(int id, std::string desc);
+		Room();
+
+		Room(int id);
 		
 		~Room();
 
@@ -48,8 +46,6 @@ class Room
 		void set_has_visited(bool has_visited);
 
 		int get_id() const;
-
-		std::string get_desc() const;
 };
 
 #endif
