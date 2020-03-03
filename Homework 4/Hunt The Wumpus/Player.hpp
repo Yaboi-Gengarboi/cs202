@@ -9,39 +9,36 @@
 
 #include "Room.hpp"
 
-#include <memory>
-#include <string>
-
 class Player
 {
-	std::string _name;
+	const char* name = nullptr;
 
-	int _health;
+	int _health = 0;
 
-	std::shared_ptr<Room> _current_room = nullptr;
+	int _current_room = -1;
 
-public:
+	public:
 
-	Player();
-	Player(const std::string& name, int health, const std::shared_ptr<Room>& current_room);
+		Player();
+		Player(const char* name, int health, const Room& current_room);
 
-	~Player();
+		~Player();
 
-	std::string get_name() const;
+		const char* getName() const;
 
-	int get_health() const;
+		int getHealth() const;
 
-	void damage(int health);
+		void damage(int health);
 
-	void heal(int health);
+		void heal(int health);
 
-	std::shared_ptr<Room> get_current_room() const;
+		int getCurrentRoom() const;
 
-	void set_current_room(const std::shared_ptr<Room>& room);
+		void setCurrentRoom(const Room& room);
 
 
 
-	void act();
+		void act();
 };
 
 #endif //PLAYER_HPP

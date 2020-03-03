@@ -12,19 +12,14 @@
 #include <vector>
 using std::vector;
 
-#include <string>
-using std::size_t;
-using std::string;
-using std::to_string;
-
 #include <iostream>
 using std::cout;
 using std::endl;
 
 int main()
 {
+	//Initialize Rooms
 	vector<Room> rooms;
-
 	for (int i = 0; i < 20; ++i)
 	{
 		Room room(i);

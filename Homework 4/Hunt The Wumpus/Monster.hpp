@@ -9,35 +9,32 @@
 
 #include "Room.hpp"
 
-#include <memory>
-#include <string>
-
 class Monster
 {
 	const char* name = "Wumpus";
 
-	int _health;
+	int _health = -1;
 
 	int _current_room = -1;
 
 	public:
 
 		Monster();
-		Monster(int health, int current_room);
+		Monster(int health, const Room& current_room);
 
 		~Monster();
 
-		const char* get_name() const;
+		const char* getName() const;
 
-		int get_health() const;
+		int getHealth() const;
 
 		void damage(int health);
 
 		void heal(int health);
 
-		int get_current_room() const;
+		int getCurrentRoom() const;
 
-		void set_current_room(const Room& room);
+		void setCurrentRoom(const Room& room);
 
 
 
