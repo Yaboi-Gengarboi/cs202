@@ -1,7 +1,7 @@
 //Player.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last updated on 2/25/2020
+//Last updated on 3/3/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #ifndef PLAYER_HPP
