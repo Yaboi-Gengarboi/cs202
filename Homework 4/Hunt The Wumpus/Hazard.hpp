@@ -25,13 +25,13 @@ class Hazard
 
 		~Hazard();
 
-		int get_room();
+		int getRoom();
 
-		int get_type();
+		int getType();
 
-		void set_type(int type);
+		void setType(int type);
 
-		void act_on_player();
+		void actOnPlayer();
 };
 
 #endif //HAZARD_HPP

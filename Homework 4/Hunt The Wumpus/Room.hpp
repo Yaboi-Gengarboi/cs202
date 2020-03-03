@@ -27,17 +27,17 @@ class Room
 		
 		~Room();
 
-		int get_Room_up() const;
-		int get_Room_left() const;
-		int get_Room_right() const;
-		int get_Room_down() const;
+		int getRoomUp() const;
+		int getRoomLeft() const;
+		int getRoomRight() const;
+		int getRoomDown() const;
 
-		void set_Room_up(const Room& room);
-		void set_Room_left(const Room& room);
-		void set_Room_right(const Room& room);
-		void set_Room_down(const Room& room);
+		void setRoomUp(const Room& room);
+		void setRoomLeft(const Room& room);
+		void setRoomRight(const Room& room);
+		void setRoomDown(const Room& room);
 
-		int get_id() const;
+		int getId() const;
 };
 
 #endif

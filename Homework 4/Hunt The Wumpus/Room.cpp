@@ -15,47 +15,47 @@ Room::Room(int id)
 
 Room::~Room() {/* Destructor */}
 
-int Room::get_Room_up() const
+int Room::getRoomUp() const
 {
 	return _up;
 }
 
-int Room::get_Room_left() const
+int Room::getRoomLeft() const
 {
 	return _left;
 }
 
-int Room::get_Room_right() const
+int Room::getRoomRight() const
 {
 	return _right;
 }
 
-int Room::get_Room_down() const
+int Room::getRoomDown() const
 {
 	return _down;
 }
 
-void Room::set_Room_up(const Room& room)
+void Room::setRoomUp(const Room& room)
 {
-	_up = room.get_id();
+	_up = room.getId();
 }
 
-void Room::set_Room_left(const Room& room)
+void Room::setRoomLeft(const Room& room)
 {
-	_left = room.get_id();
+	_left = room.getId();
 }
 
-void Room::set_Room_right(const Room& room)
+void Room::setRoomRight(const Room& room)
 {
-	_right = room.get_id();
+	_right = room.getId();
 }
 
-void Room::set_Room_down(const Room& room)
+void Room::setRoomDown(const Room& room)
 {
-	_down = room.get_id();
+	_down = room.getId();
 }
 
-int Room::get_id() const
+int Room::getId() const
 {
 	return _id;
 }

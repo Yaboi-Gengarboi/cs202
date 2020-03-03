@@ -145,6 +145,7 @@
     <ClInclude Include="Tools.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Hazard.cpp" />
     <ClCompile Include="main_file.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Tools.cpp" />
