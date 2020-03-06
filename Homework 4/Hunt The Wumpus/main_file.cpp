@@ -12,13 +12,25 @@
 #include <vector>
 using std::vector;
 
+#include <string>
+using std::string;
+using std::getline;
+
+#include <thread>
+using std::this_thread::sleep_for;
+
+#include <chrono> 
+using std::chrono::seconds;
+
 #include <iostream>
+using std::cin;
 using std::cout;
 using std::endl;
 
 int main()
 {
-	//Initialize Rooms
+	/*         BEGIN ROOM SEQUENCE INITIALIZATION         */
+
 	vector<Room> rooms;
 	for (int i = 0; i < 20; ++i)
 	{
@@ -112,6 +124,80 @@ int main()
 
 	rooms[19].setRoomUp(rooms[18]);
 	rooms[19].setRoomLeft(rooms[15]);
+
+	/*          END ROOM SEQUENCE INITIALIZATION          */
+	/*                 BEGIN INTRODUCTION                 */
+
+	string player_name;
+
+	cout << "What's your name?" << endl;
+	getline(cin, player_name);
+	cout << "Ah yes, " << player_name << ". I have heard much about you." << endl << endl;
+	sleep_for(seconds(2));
+
+	cout << "Anyways, listen up " << player_name << "." << endl << endl;
+	sleep_for(seconds(2));
+
+	cout << "In the dark forest, there exists a monster that is" << endl;
+	cout << "so immensely hideous, frightening and smelly that no" << endl;
+	cout << "one has entered the forest and lived to tell the tale." << endl << endl;
+	sleep_for(seconds(10));
+
+	cout << "They call it the Wumpus." << endl << endl;
+	sleep_for(seconds(3));
+
+	cout << "Our village is forever bathed in the shadow of fear" << endl;
+	cout << "cast by the Wumpus. Without the natural resources" << endl;
+	cout << "we are constantly on the brisk of death, our fate" << endl;
+	cout << "in the hands of luck. Most times, there is blood on" << endl;
+	cout << "those hands. But perhaps not today." << endl << endl;
+	sleep_for(seconds(12));
+
+	cout << "You have proven yourself to be a great warrior only" << endl;
+	cout << "comparable to legends. Accounts of your deeds have" << endl;
+	cout << "spread beyond mountains, valleys and rivers. You are" << endl;
+	cout << "more than capable of defeating the Wumpus. You are" << endl;
+	cout << "destined to!" << endl << endl;
+	sleep_for(seconds(12));
+
+	cout << "There are still some things you must be wary of." << endl << endl;
+	sleep_for(seconds(3));
+
+	cout << "The forest has bottomless pits that will drag you" << endl;
+	cout << "to the middle of the Earth. If you feel a breeze," << endl;
+	cout << "be careful. One is nearby." << endl << endl;
+	sleep_for(seconds(10));
+
+	cout << "The forest is also popular for birds. Some are so" << endl;
+	cout << "large they can pick you up! They will bring you to" << endl;
+	cout << "another part of the forest. If you hear a flapping" << endl;
+	cout << "sound, be cautious of a bird lurking." << endl << endl;
+	sleep_for(seconds(12));
+
+	cout << "Finally, there is the Wumpus." << endl << endl;
+	sleep_for(seconds(3));
+
+	cout << "You cannot fight it directly. It will easily" << endl;
+	cout << "overpower you. Instead, you must shoot it from a" << endl;
+	cout << "distance. You can tell it is nearby from its smell." << endl;
+	cout << "Be careful when shooting, as missing will cause it to" << endl;
+	cout << "approach you." << endl << endl;
+	sleep_for(seconds(12));
+
+	cout << "It is a difficult task, but I know you are capable." << endl << endl;
+	sleep_for(seconds(3));
+
+	cout << "You are our only hope." << endl << endl;
+	sleep_for(seconds(5));
+
+	cout << player_name << " has embarked on an adventure to slay" << endl;
+	cout << "the Wumpus! Will they be victorious?" << endl << endl;
+	sleep_for(seconds(5));
+
+	/*                  END INTRODUCTION                  */
+	/*                  BEGIN MAIN GAME                   */
+
+
 
 	return 0;
 }

@@ -12,7 +12,7 @@ class Hazard
 
 	/* HAZARD TYPES:
 	   -1: Uninitialized
-	    0: Bat
+	    0: Bird
 		1: Bottomless Pit
 	*/
 	int _type = -1;
