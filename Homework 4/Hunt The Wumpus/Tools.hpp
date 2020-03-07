@@ -11,6 +11,9 @@
 
 #include "Room.hpp"
 
+#include <string>
+#include <vector>
+
 //
 int rand_int_between(int low, int high);
 
@@ -18,6 +21,12 @@ int rand_int_between(int low, int high);
 //if the file exists using the good() member function.
 //RETURNS TRUE IF FILE EXISTS
 //RETURNS FALSE OTHERWISE
-bool does_file_exist(const char* file);
+bool does_file_exist(const std::string& str);
+
+//
+int get_choice(const std::string& prompt, const std::vector<std::string>& choices);
+
+//
+void print_and_wait(const std::string& str, int println, int time);
 
 #endif //TOOLS_HPP

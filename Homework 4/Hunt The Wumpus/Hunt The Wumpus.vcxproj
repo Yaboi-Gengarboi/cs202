@@ -147,6 +147,8 @@
   <ItemGroup>
     <ClCompile Include="Hazard.cpp" />
     <ClCompile Include="main_file.cpp" />
+    <ClCompile Include="Monster.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Room.cpp" />
     <ClCompile Include="Tools.cpp" />
   </ItemGroup>

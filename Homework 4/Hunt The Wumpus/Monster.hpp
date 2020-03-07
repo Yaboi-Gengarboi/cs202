@@ -1,7 +1,7 @@
 //Monster.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last updated on 3/3/2020
+//Last updated on 3/7/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #ifndef MONSTER_HPP
@@ -9,11 +9,13 @@
 
 #include "Room.hpp"
 
+#include <string>
+
 class Monster
 {
-	const char* name = "Wumpus";
+	std::string _name = "Wumpus";
 
-	int _health = -1;
+	int _health = 0;
 
 	int _current_room = -1;
 
@@ -24,7 +26,7 @@ class Monster
 
 		~Monster();
 
-		const char* getName() const;
+		std::string getName() const;
 
 		int getHealth() const;
 
@@ -36,9 +38,11 @@ class Monster
 
 		void setCurrentRoom(const Room& room);
 
+		void checkAdjacentRooms();
 
+		bool canMoveToRoom(const Room& room);
 
-		void act();
+		bool act();
 };
 
 #endif //MONSTER_HPP
