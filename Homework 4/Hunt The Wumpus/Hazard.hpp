@@ -6,6 +6,8 @@
 #ifndef HAZARD_HPP
 #define HAZARD_HPP
 
+#include "Player.hpp"
+
 class Hazard
 {
 	int _room = -1;
@@ -31,7 +33,7 @@ class Hazard
 
 		void setType(int type);
 
-		void actOnPlayer();
+		void actOnPlayer(Player& player);
 };
 
 #endif //HAZARD_HPP

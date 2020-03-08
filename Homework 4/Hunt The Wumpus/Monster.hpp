@@ -38,11 +38,7 @@ class Monster
 
 		void setCurrentRoom(const Room& room);
 
-		void checkAdjacentRooms();
-
-		bool canMoveToRoom(const Room& room);
-
-		bool act();
+		void actOnPlayer(Player& player);
 };
 
 #endif //MONSTER_HPP

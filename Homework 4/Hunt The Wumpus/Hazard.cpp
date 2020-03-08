@@ -5,6 +5,7 @@
 
 #include "Hazard.hpp"
 #include "Room.hpp"
+#include "Tools.hpp"
 
 Hazard::Hazard() {}
 
@@ -31,7 +32,14 @@ void Hazard::setType(int type)
 	_type = type;
 }
 
-void Hazard::actOnPlayer()
+void Hazard::actOnPlayer(Player& player)
 {
-
+	if (_type == 0)
+	{
+		player.setCurrentRoom(rand_int_between(0, 19));
+	}
+	else if (_type == 1)
+	{
+		player.damage(100);
+	}
 }

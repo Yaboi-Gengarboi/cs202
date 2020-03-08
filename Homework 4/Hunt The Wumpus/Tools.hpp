@@ -29,4 +29,7 @@ int get_choice(const std::string& prompt, const std::vector<std::string>& choice
 //
 void print_and_wait(const std::string& str, int println, int time);
 
+//
+void print_Room(const Room& room);
+
 #endif //TOOLS_HPP

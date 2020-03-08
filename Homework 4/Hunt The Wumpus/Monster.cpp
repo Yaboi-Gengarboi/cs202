@@ -42,3 +42,8 @@ void Monster::setCurrentRoom(const Room& room)
 {
 	_current_room = room.getId();
 }
+
+void Monster::actOnPlayer(Player& player)
+{
+	player.damage(100);
+}

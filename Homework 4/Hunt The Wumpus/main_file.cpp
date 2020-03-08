@@ -7,6 +7,7 @@
 #include "Room.hpp"
 #include "Monster.hpp"
 #include "Player.hpp"
+#include "Hazard.hpp"
 #include "Tools.hpp"
 
 #include <vector>
@@ -14,6 +15,7 @@ using std::vector;
 
 #include <string>
 using std::string;
+using std::to_string;
 using std::getline;
 
 #include <iostream>
@@ -128,66 +130,195 @@ int main()
 	getline(cin, player_name);
 	print_and_wait(player_name + ". I have heard much about you.", 2, 2);
 
+	/*
+
 	print_and_wait("Anyways, listen up " + player_name + ".", 2, 2);
 
-	print_and_wait("In the dark forest, there exists a monster that is"
-				   "so immensely hideous, frightening and smelly that no"
+	print_and_wait("In the dark forest, there exists a monster that is\n"
+				   "so immensely hideous, frightening and smelly that no\n"
 				   "one has entered the forest and lived to tell the tale."
 					, 2, 10);
 
 	print_and_wait("They call it the Wumpus.", 2, 3);
 
-	print_and_wait("Our village is forever bathed in the shadow of fear"
-				   "cast by the Wumpus. Without the natural resources"
-                   "we are constantly on the brisk of death, our fate"
-				   "in the hands of luck. Most times, there is blood on"
+	print_and_wait("Our village is forever bathed in the shadow of fear\n"
+				   "cast by the Wumpus. Without the natural resources\n"
+                   "we are constantly on the brisk of death, our fate\n"
+				   "in the hands of luck. Most times, there is blood on\n"
 				   "those hands. But perhaps not today."
 	 , 2, 12);
 
-	print_and_wait("You have proven yourself to be a great warrior only"
-				   "comparable to legends. Accounts of your deeds have"
-				   "spread beyond mountains, valleys and rivers. You are"
-				   "more than capable of defeating the Wumpus. You are"
+	print_and_wait("You have proven yourself to be a great warrior only\n"
+				   "comparable to legends. Accounts of your deeds have\n"
+				   "spread beyond mountains, valleys and rivers. You are\n"
+				   "more than capable of defeating the Wumpus. You are\n"
 				   "destined to!", 2, 12);
 
 	print_and_wait("There are still some things you must be wary of.", 2, 3);
 
-	print_and_wait("The forest has bottomless pits that will drag you"
-				   "to the middle of the Earth. If you feel a breeze,"
+	print_and_wait("The forest has bottomless pits that will drag you\n"
+				   "to the middle of the Earth. If you feel a breeze,\n"
 				   "be careful. One is nearby.", 2, 10);
 
-	print_and_wait("The forest is also popular for birds. Some are so"
-				   "large they can pick you up! They will bring you to"
-				   "another part of the forest. If you hear a flapping"
+	print_and_wait("The forest is also popular for birds. Some are so\n"
+				   "large they can pick you up! They will bring you to\n"
+				   "another part of the forest. If you hear a flapping\n"
 				   "sound, be cautious of a bird lurking.", 2, 12);
 
 	print_and_wait("Finally, there is the Wumpus.", 2, 3);
 
-	print_and_wait("You cannot fight it directly. It will easily"
-				   "overpower you. Instead, you must shoot it from a"
-				   "distance. You can tell it is nearby from its smell."
-				   "Be careful when shooting, as missing will cause it to"
+	print_and_wait("You cannot fight it directly. It will easily\n"
+				   "overpower you. Instead, you must shoot it from a\n"
+				   "distance. You can tell it is nearby from its smell.\n"
+				   "Be careful when shooting, as missing will cause it to\n"
 				   "approach you.", 2, 12);
 
 	print_and_wait("It is a difficult task, but I know you are capable.", 2, 3);
 
 	print_and_wait("You are our only hope.", 2, 5);
 
-	print_and_wait(player_name + " has embarked on an adventure to slay"
+	print_and_wait(player_name + " has embarked on an adventure to slay\n"
 				   "the Wumpus! Will they be victorious?", 2, 5);
 
-	/*                  END INTRODUCTION                  */
+	*/
 
+	/*                  END INTRODUCTION                  */
 	/*                  BEGIN MAIN GAME                   */
 
-	Player pl(player_name, 100, 0);
-	Monster wump(100, 18);
+	Player player(player_name, 100, 0);
+	Monster wumpus(100, 18);
+	vector<Hazard> hazards;
+
+	int r = rand_int_between(4, 16);
+
+	int rand_ints[3] = { r, r, r };
+	while (rand_ints[1] == rand_ints[0])
+		rand_ints[1] = rand_int_between(4, 16);
+	while (rand_ints[2] == rand_ints[0])
+		rand_ints[2] = rand_int_between(4, 16);
+
+	hazards.push_back(Hazard(rand_ints[0], 0));
+	hazards.push_back(Hazard(rand_ints[1], 0));
+	hazards.push_back(Hazard(rand_ints[2], 1));
 
 	//If either the player's or monster's health is at 0, the game will end.
-	while (pl.getHealth() * wump.getHealth() != 0)
-	{
+	//while (player.getHealth() * wumpus.getHealth() != 0)
+	//{
+	print_Room(player.getCurrentRoom());
 
+	if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomUp())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+	else if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+	else if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomRight())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+	else if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomDown())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+
+	if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomUp())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+	else if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+	else if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomRight())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+	else if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomDown())
+		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+
+	if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomUp())
+		print_and_wait(player_name + " feels a breeze!", 2, 2);
+	else if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
+		print_and_wait(player_name + " feels a breeze!", 2, 2);
+	else if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomRight())
+		print_and_wait(player_name + " feels a breeze!", 2, 2);
+	else if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomDown())
+		print_and_wait(player_name + " feels a breeze!", 2, 2);
+
+	if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomUp())
+		print_and_wait(player_name + " smells a wumpus!", 2, 2);
+	else if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
+		print_and_wait(player_name + " smells a wumpus!", 2, 2);
+	else if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomRight())
+		print_and_wait(player_name + " smells a wumpus!", 2, 2);
+	else if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomDown())
+		print_and_wait(player_name + " smells a wumpus!", 2, 2);
+
+	vector<string> choices = { "Move", "Shoot" };
+	
+	int choice = get_choice("What will" + player_name + " do?", choices);
+
+	if (choice == 0)
+	{
+		choices.clear();
+		choices = { "Up", "Left", "Right", "Down" };
+
+		choice = get_choice("Where will" + player_name + " move?", choices);
+
+		switch (choice)
+		{
+			case 0:
+				if (rooms[player.getCurrentRoom()].getRoomUp() != -1)
+				{
+					print_and_wait(player_name + " moved up!", 2, 2);
+					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomUp());
+				}
+				else if (rooms[player.getCurrentRoom()].getRoomUp() == -1)
+					print_and_wait(player_name + " can't move up!", 2, 2);
+				break;
+
+			case 1:
+				if (rooms[player.getCurrentRoom()].getRoomLeft() != -1)
+				{
+					print_and_wait(player_name + " moved left!", 2, 2);
+					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomLeft());
+				}
+				else if (rooms[player.getCurrentRoom()].getRoomLeft() == -1)
+					print_and_wait(player_name + " can't move left!", 2, 2);
+
+			case 2:
+				if (rooms[player.getCurrentRoom()].getRoomRight() != -1)
+				{
+					print_and_wait(player_name + " moved right!", 2, 2);
+					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomRight());
+				}
+				else if (rooms[player.getCurrentRoom()].getRoomRight() == -1)
+					print_and_wait(player_name + " can't move right!", 2, 2);
+
+			case 3:
+				if (rooms[player.getCurrentRoom()].getRoomDown() != -1)
+				{
+					print_and_wait(player_name + " moved down!", 2, 2);
+					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomDown());
+				}
+				else if (rooms[player.getCurrentRoom()].getRoomDown() == -1)
+					print_and_wait(player_name + " can't move down!", 2, 2);
+		}
+
+		if (player.getCurrentRoom() == hazards[0].getRoom())
+		{
+			hazards[0].actOnPlayer(player);
+			print_and_wait("A bird caught " + player_name + " and took them to room " + to_string(player.getCurrentRoom()), 2, 4);
+		}
+		else if (player.getCurrentRoom() == hazards[1].getRoom())
+		{
+			hazards[1].actOnPlayer(player);
+			print_and_wait("A bird caught " + player_name + " and took them to room " + to_string(player.getCurrentRoom()), 2, 4);
+		}
+		else if (player.getCurrentRoom() == hazards[2].getRoom())
+		{
+			hazards[2].actOnPlayer(player);
+			print_and_wait(player_name + " fell in a bottomless pit!", 2, 2);
+			print_and_wait("GAME OVER", 2, 3);
+			return 0;
+		}
+		else if (player.getCurrentRoom() == wumpus.getCurrentRoom())
+		{
+			wumpus.actOnPlayer(player);
+			print_and_wait(player_name + " was eaten by the wumpus!", 2, 2);
+			print_and_wait("GAME OVER", 2, 3);
+			return 0;
+		}
 	}
+	//}
 
 	return 0;
 }

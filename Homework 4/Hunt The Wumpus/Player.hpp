@@ -38,13 +38,7 @@ class Player
 
 		void setCurrentRoom(const Room& room);
 
-		void checkAdjacentRooms();
-
 		bool shoot(int direction);
-
-		bool canMoveToRoom(const Room& room);
-
-		bool act();
 };
 
 #endif //PLAYER_HPP

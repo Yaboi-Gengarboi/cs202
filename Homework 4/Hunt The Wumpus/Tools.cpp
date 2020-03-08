@@ -78,8 +78,60 @@ int get_choice(const string& prompt, const vector<string>& choices)
 void print_and_wait(const string& str, int println, int time)
 {
 	cout << str;
-	for (int i = 0; i < time; ++i)
+	for (int i = 0; i < println; ++i)
 		cout << endl;
 
 	sleep_for(seconds(time));
+}
+
+void print_Room(const Room& room)
+{
+	if (room.getRoomUp() != -1)
+	{
+		cout << "         #    #" << endl;
+		cout << "  ########    ########" << endl;
+	}
+	else
+	{
+		cout << "  ####################" << endl;
+	}
+	cout << "  #                  #" << endl;
+
+	if (room.getRoomLeft() != -1 && room.getRoomRight() != -1)
+	{
+		cout << "###                  ###" << endl;
+		cout << endl;
+		cout << "###                  ###" << endl;
+	}
+	else if (room.getRoomLeft() == -1 && room.getRoomRight() != -1)
+	{
+		cout << "  #                  ###" << endl;
+		cout << "  #                     " << endl;
+		cout << "  #                  ###" << endl;
+	}
+	else if (room.getRoomLeft() != -1 && room.getRoomRight() == -1)
+	{
+		cout << "###                  #  " << endl;
+		cout << "                     #  " << endl;
+		cout << "###                  #  " << endl;
+	}
+	else
+	{
+		cout << "  #                  #  " << endl;
+		cout << "  #                  #  " << endl;
+		cout << "  #                  #  " << endl;
+	}
+	cout << "  #                  #" << endl;
+
+	if (room.getRoomDown() != -1)
+	{
+		cout << "  ########    ########" << endl;
+		cout << "         #    #" << endl;
+	}
+	else
+	{
+		cout << "  ####################" << endl;
+	}
+
+	cout << endl;
 }
