@@ -1,10 +1,12 @@
 //Room.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last updated on 3/3/2020
+//Last updated on 3/8/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #include "Room.hpp"
+#include "Monster.hpp"
+#include "Hazard.hpp"
 
 Room::Room() {}
 
@@ -58,4 +60,60 @@ void Room::setRoomDown(const Room& room)
 int Room::getId() const
 {
 	return _id;
+}
+
+bool Room::isMonsterUp(const Monster& monster) const
+{
+	if (monster.getCurrentRoom() == _up)
+		return true;
+	return false;
+}
+
+bool Room::isMonsterLeft(const Monster& monster) const
+{
+	if (monster.getCurrentRoom() == _left)
+		return true;
+	return false;
+}
+
+bool Room::isMonsterRight(const Monster& monster) const
+{
+	if (monster.getCurrentRoom() == _right)
+		return true;
+	return false;
+}
+
+bool Room::isMonsterDown(const Monster& monster) const
+{
+	if (monster.getCurrentRoom() == _down)
+		return true;
+	return false;
+}
+
+bool Room::isHazardUp(const Hazard& hazard) const
+{
+	if (hazard.getRoom() == _up)
+		return true;
+	return false;
+}
+
+bool Room::isHazardLeft(const Hazard& hazard) const
+{
+	if (hazard.getRoom() == _left)
+		return true;
+	return false;
+}
+
+bool Room::isHazardRight(const Hazard& hazard) const
+{
+	if (hazard.getRoom() == _right)
+		return true;
+	return false;
+}
+
+bool Room::isHazardDown(const Hazard& hazard) const
+{
+	if (hazard.getRoom() == _down)
+		return true;
+	return false;
 }

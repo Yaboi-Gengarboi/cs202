@@ -1,7 +1,7 @@
 //Hazard.hpp
 //Justyn Durnford
 //Created on 3/3/2020
-//Last updated on 3/3/2020
+//Last updated on 3/8/2020
 
 #ifndef HAZARD_HPP
 #define HAZARD_HPP
@@ -27,9 +27,9 @@ class Hazard
 
 		~Hazard();
 
-		int getRoom();
+		int getRoom() const;
 
-		int getType();
+		int getType() const;
 
 		void setType(int type);
 

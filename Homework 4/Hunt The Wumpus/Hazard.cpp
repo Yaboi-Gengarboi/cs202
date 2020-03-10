@@ -1,7 +1,7 @@
 //Hazard.hpp
 //Justyn Durnford
 //Created on 3/3/2020
-//Last updated on 3/3/2020
+//Last updated on 3/8/2020
 
 #include "Hazard.hpp"
 #include "Room.hpp"
@@ -17,12 +17,12 @@ Hazard::Hazard(int room, int type)
 
 Hazard::~Hazard() {}
 
-int Hazard::getRoom()
+int Hazard::getRoom() const
 {
 	return _room;
 }
 
-int Hazard::getType()
+int Hazard::getType() const
 {
 	return _type;
 }

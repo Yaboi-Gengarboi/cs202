@@ -1,7 +1,7 @@
 //main_file.cpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last updated on 3/7/2020
+//Last updated on 3/8/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #include "Room.hpp"
@@ -36,11 +36,11 @@ int main()
 
 	/* _____ROOM SYSTEM VISUALIZATION_____
 
-			             |07||12|
-                 |01||04||08||13||17|
-    Player -> |00|02||05||09||14||18| <- Monster
-                 |03||06||10||15||19|
-		                 |11||16|
+						 |07||12|
+				 |01||04||08||13||17|
+	Player -> |00|02||05||09||14||18| <- Monster
+				 |03||06||10||15||19|
+						 |11||16|
 	*/
 
 	rooms[0].setRoomRight(rooms[2]);
@@ -130,40 +130,38 @@ int main()
 	getline(cin, player_name);
 	print_and_wait(player_name + ". I have heard much about you.", 2, 2);
 
-	/*
-
 	print_and_wait("Anyways, listen up " + player_name + ".", 2, 2);
 
 	print_and_wait("In the dark forest, there exists a monster that is\n"
 				   "so immensely hideous, frightening and smelly that no\n"
 				   "one has entered the forest and lived to tell the tale."
-					, 2, 10);
+					, 2, 8);
 
 	print_and_wait("They call it the Wumpus.", 2, 3);
 
 	print_and_wait("Our village is forever bathed in the shadow of fear\n"
 				   "cast by the Wumpus. Without the natural resources\n"
-                   "we are constantly on the brisk of death, our fate\n"
+				   "we are constantly on the brisk of death, our fate\n"
 				   "in the hands of luck. Most times, there is blood on\n"
 				   "those hands. But perhaps not today."
-	 , 2, 12);
+	 , 2, 10);
 
 	print_and_wait("You have proven yourself to be a great warrior only\n"
 				   "comparable to legends. Accounts of your deeds have\n"
 				   "spread beyond mountains, valleys and rivers. You are\n"
 				   "more than capable of defeating the Wumpus. You are\n"
-				   "destined to!", 2, 12);
+				   "destined to!", 2, 10);
 
 	print_and_wait("There are still some things you must be wary of.", 2, 3);
 
 	print_and_wait("The forest has bottomless pits that will drag you\n"
 				   "to the middle of the Earth. If you feel a breeze,\n"
-				   "be careful. One is nearby.", 2, 10);
+				   "be careful. One is nearby.", 2, 8);
 
 	print_and_wait("The forest is also popular for birds. Some are so\n"
 				   "large they can pick you up! They will bring you to\n"
 				   "another part of the forest. If you hear a flapping\n"
-				   "sound, be cautious of a bird lurking.", 2, 12);
+				   "sound, be cautious of a bird lurking.", 2, 10);
 
 	print_and_wait("Finally, there is the Wumpus.", 2, 3);
 
@@ -171,22 +169,20 @@ int main()
 				   "overpower you. Instead, you must shoot it from a\n"
 				   "distance. You can tell it is nearby from its smell.\n"
 				   "Be careful when shooting, as missing will cause it to\n"
-				   "approach you.", 2, 12);
+				   "approach you.", 2, 10);
 
 	print_and_wait("It is a difficult task, but I know you are capable.", 2, 3);
 
-	print_and_wait("You are our only hope.", 2, 5);
+	print_and_wait("You are our only hope.", 2, 4);
 
 	print_and_wait(player_name + " has embarked on an adventure to slay\n"
-				   "the Wumpus! Will they be victorious?", 2, 5);
-
-	*/
+				   "the Wumpus! Will they be victorious?", 2, 4);
 
 	/*                  END INTRODUCTION                  */
 	/*                  BEGIN MAIN GAME                   */
 
-	Player player(player_name, 100, 0);
-	Monster wumpus(100, 18);
+	Player player(player_name, 100, rooms[0]);
+	Monster wumpus(100, rooms[18]);
 	vector<Hazard> hazards;
 
 	int r = rand_int_between(4, 16);
@@ -201,124 +197,503 @@ int main()
 	hazards.push_back(Hazard(rand_ints[1], 0));
 	hazards.push_back(Hazard(rand_ints[2], 1));
 
+	bool has_Wumpus_moved = false;
+
 	//If either the player's or monster's health is at 0, the game will end.
-	//while (player.getHealth() * wumpus.getHealth() != 0)
-	//{
-	print_Room(player.getCurrentRoom());
-
-	if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomUp())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-	else if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-	else if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomRight())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-	else if (hazards[0].getRoom() == rooms[player.getCurrentRoom()].getRoomDown())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-
-	if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomUp())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-	else if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-	else if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomRight())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-	else if (hazards[1].getRoom() == rooms[player.getCurrentRoom()].getRoomDown())
-		print_and_wait(player_name + " hears a flapping sound!", 2, 2);
-
-	if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomUp())
-		print_and_wait(player_name + " feels a breeze!", 2, 2);
-	else if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
-		print_and_wait(player_name + " feels a breeze!", 2, 2);
-	else if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomRight())
-		print_and_wait(player_name + " feels a breeze!", 2, 2);
-	else if (hazards[2].getRoom() == rooms[player.getCurrentRoom()].getRoomDown())
-		print_and_wait(player_name + " feels a breeze!", 2, 2);
-
-	if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomUp())
-		print_and_wait(player_name + " smells a wumpus!", 2, 2);
-	else if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
-		print_and_wait(player_name + " smells a wumpus!", 2, 2);
-	else if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomRight())
-		print_and_wait(player_name + " smells a wumpus!", 2, 2);
-	else if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomDown())
-		print_and_wait(player_name + " smells a wumpus!", 2, 2);
-
-	vector<string> choices = { "Move", "Shoot" };
-	
-	int choice = get_choice("What will" + player_name + " do?", choices);
-
-	if (choice == 0)
+	while (player.getHealth() * wumpus.getHealth() != 0)
 	{
-		choices.clear();
-		choices = { "Up", "Left", "Right", "Down" };
+		
+		//DEBUG
+		cout << "Player @ Room " << player.getCurrentRoom() << endl;
+		cout << "Wumpus @ Room " << wumpus.getCurrentRoom() << endl;
+		cout << "Bird 1 @ Room " << hazards[0].getRoom() << endl;
+		cout << "Bird 2 @ Room " << hazards[1].getRoom() << endl;
+		cout << "Pit @ Room " << hazards[2].getRoom() << endl;
+		//DEBUG
 
-		choice = get_choice("Where will" + player_name + " move?", choices);
+		print_Room(rooms[player.getCurrentRoom()]);
 
-		switch (choice)
+		//Check if a bird is nearby.
+		if (rooms[player.getCurrentRoom()].isHazardUp(hazards[0]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardLeft(hazards[0]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardRight(hazards[0]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardDown(hazards[0]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+
+		//Check if a bird is nearby.
+		if (rooms[player.getCurrentRoom()].isHazardUp(hazards[1]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardLeft(hazards[1]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardRight(hazards[1]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardDown(hazards[1]))
+			print_and_wait(player_name + " hears a flapping sound!", 2, 2);
+
+		//Check if a botomless pit is nearby.
+		if (rooms[player.getCurrentRoom()].isHazardUp(hazards[2]))
+			print_and_wait(player_name + " feels a breeze!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardLeft(hazards[2]))
+			print_and_wait(player_name + " feels a breeze!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardRight(hazards[2]))
+			print_and_wait(player_name + " feels a breeze!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isHazardDown(hazards[2]))
+			print_and_wait(player_name + " feels a breeze!", 2, 2);
+
+		//Check if the Wumpus is nearby.
+		if (rooms[player.getCurrentRoom()].isMonsterUp(wumpus))
+			print_and_wait(player_name + " smells a wumpus!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isMonsterLeft(wumpus))
+			print_and_wait(player_name + " smells a wumpus!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isMonsterRight(wumpus))
+			print_and_wait(player_name + " smells a wumpus!", 2, 2);
+		else if (rooms[player.getCurrentRoom()].isMonsterDown(wumpus))
+			print_and_wait(player_name + " smells a wumpus!", 2, 2);
+
+		vector<string> choices = { "Move", "Shoot" };
+
+		int choice = get_choice("What will " + player_name + " do?", choices);
+
+		if (choice == 0) //Move
 		{
-			case 0:
-				if (rooms[player.getCurrentRoom()].getRoomUp() != -1)
-				{
-					print_and_wait(player_name + " moved up!", 2, 2);
-					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomUp());
-				}
-				else if (rooms[player.getCurrentRoom()].getRoomUp() == -1)
-					print_and_wait(player_name + " can't move up!", 2, 2);
+			choices.clear();
+			choices = { "Up", "Left", "Right", "Down" };
+
+			choice = get_choice("Where will " + player_name + " move?", choices);
+
+			switch (choice)
+			{
+				case 0:
+					if (rooms[player.getCurrentRoom()].getRoomUp() != -1)
+					{
+						print_and_wait(player_name + " moved up!", 2, 2);
+						player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomUp());
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomUp() == -1)
+						print_and_wait(player_name + " can't move up!", 2, 2);
 				break;
 
-			case 1:
-				if (rooms[player.getCurrentRoom()].getRoomLeft() != -1)
-				{
-					print_and_wait(player_name + " moved left!", 2, 2);
-					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomLeft());
-				}
-				else if (rooms[player.getCurrentRoom()].getRoomLeft() == -1)
-					print_and_wait(player_name + " can't move left!", 2, 2);
+				case 1:
+					if (rooms[player.getCurrentRoom()].getRoomLeft() != -1)
+					{
+						print_and_wait(player_name + " moved left!", 2, 2);
+						player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomLeft());
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomLeft() == -1)
+						print_and_wait(player_name + " can't move left!", 2, 2);
+				break;
 
-			case 2:
-				if (rooms[player.getCurrentRoom()].getRoomRight() != -1)
-				{
-					print_and_wait(player_name + " moved right!", 2, 2);
-					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomRight());
-				}
-				else if (rooms[player.getCurrentRoom()].getRoomRight() == -1)
+				case 2:
+					if (rooms[player.getCurrentRoom()].getRoomRight() != -1)
+					{
+						print_and_wait(player_name + " moved right!", 2, 2);
+						player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomRight());
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomRight() == -1)
 					print_and_wait(player_name + " can't move right!", 2, 2);
+				break;
 
-			case 3:
-				if (rooms[player.getCurrentRoom()].getRoomDown() != -1)
+				case 3:
+					if (rooms[player.getCurrentRoom()].getRoomDown() != -1)
+					{
+						print_and_wait(player_name + " moved down!", 2, 2);
+						player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomDown());
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomDown() == -1)
+						print_and_wait(player_name + " can't move down!", 2, 2);
+				break;
+			}
+
+			//Check if player entered room with bird.
+			if (player.getCurrentRoom() == hazards[0].getRoom())
+			{
+				hazards[0].actOnPlayer(player);
+				print_and_wait("A bird caught " + player_name + " and took them to room " + to_string(player.getCurrentRoom()), 2, 4);
+				if (player.getCurrentRoom() == wumpus.getCurrentRoom())
 				{
-					print_and_wait(player_name + " moved down!", 2, 2);
-					player.setCurrentRoom(rooms[player.getCurrentRoom()].getRoomDown());
+					print_and_wait(player_name + " was brought to the Wumpus!", 2, 2);
+					print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+					print_and_wait("GAME OVER!", 2, 3);
+					return 0;
 				}
-				else if (rooms[player.getCurrentRoom()].getRoomDown() == -1)
-					print_and_wait(player_name + " can't move down!", 2, 2);
+			}
+			//Check if player entered room with bird.
+			else if (player.getCurrentRoom() == hazards[1].getRoom())
+			{
+				hazards[1].actOnPlayer(player);
+				print_and_wait("A bird caught " + player_name + " and took them to room " + to_string(player.getCurrentRoom()), 2, 4);
+				if (player.getCurrentRoom() == wumpus.getCurrentRoom())
+				{
+					print_and_wait(player_name + " was brought to the Wumpus!", 2, 2);
+					print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+					print_and_wait("GAME OVER!", 2, 3);
+					return 0;
+				}
+			}
+			//Check if player entered room with a bottomless pit.
+			else if (player.getCurrentRoom() == hazards[2].getRoom())
+			{
+				hazards[2].actOnPlayer(player);
+				print_and_wait(player_name + " fell in a bottomless pit!", 2, 2);
+				print_and_wait("GAME OVER!", 2, 3);
+				return 0;
+			}
+			//Check if player entered room with the Wumpus.
+			else if (player.getCurrentRoom() == wumpus.getCurrentRoom())
+			{
+				wumpus.actOnPlayer(player);
+				print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+				print_and_wait("GAME OVER!", 2, 3);
+				return 0;
+			}
 		}
 
-		if (player.getCurrentRoom() == hazards[0].getRoom())
+		else if (choice == 1) //Shoot
 		{
-			hazards[0].actOnPlayer(player);
-			print_and_wait("A bird caught " + player_name + " and took them to room " + to_string(player.getCurrentRoom()), 2, 4);
+			choices.clear();
+			choices = { "Up", "Left", "Right", "Down" };
+
+			choice = get_choice("Where will " + player_name + " shoot?", choices);
+
+			switch (choice)
+			{
+				case 0: //Shoot up
+					if (rooms[player.getCurrentRoom()].getRoomUp() != -1)
+					{
+						print_and_wait(player_name + " shot up!", 2, 2);
+					
+						//Check if player shot the Wumpus.
+						if (rooms[player.getCurrentRoom()].isMonsterUp(wumpus))
+						{
+							wumpus.damage(100);
+							print_and_wait(player_name + " shot the Wumpus!", 2, 2);
+							print_and_wait(player_name + " has slain the Wumpus!", 2, 2);
+							print_and_wait("VICTORY!", 2, 4);
+							return 0;
+						}
+
+						//Check if the Wumpus is above the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomUp()].isMonsterUp(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomUp()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is to the left of the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomUp()].isMonsterLeft(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomUp()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is to the right of the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomUp()].isMonsterRight(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomUp()]);
+							has_Wumpus_moved = true;
+						}
+					
+						//Check if the Wumpus is near the player when they shot.
+						else if (rooms[player.getCurrentRoom()].isMonsterLeft(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterRight(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterDown(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomUp() == -1)
+						print_and_wait(player_name + " can't shoot up!", 2, 2);
+				break;
+
+				case 1: //Shoot left
+					if (rooms[player.getCurrentRoom()].getRoomLeft() != -1)
+					{
+						print_and_wait(player_name + " shot left!", 2, 2);
+
+						//Check if player shot the Wumpus.
+						if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomLeft())
+						{
+							wumpus.damage(100);
+							print_and_wait(player_name + " shot the Wumpus!", 2, 2);
+							print_and_wait(player_name + " has slain the Wumpus!", 2, 2);
+							print_and_wait("VICTORY!", 2, 4);
+							return 0;
+						}
+
+						//Check if the Wumpus is above the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomLeft()].isMonsterUp(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomLeft()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is to the left of the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomLeft()].isMonsterLeft(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomLeft()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is below the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomLeft()].isMonsterDown(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomLeft()]);
+							has_Wumpus_moved = true;
+						}
+
+						//Check if the Wumpus is near the player when they shot.
+						else if (rooms[player.getCurrentRoom()].isMonsterUp(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterRight(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterDown(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomLeft() == -1)
+						print_and_wait(player_name + " can't shoot left!", 2, 2);
+				break;
+
+				case 2: //Shoot right
+					if (rooms[player.getCurrentRoom()].getRoomRight() != -1)
+					{
+						print_and_wait(player_name + " shot right!", 2, 2);
+
+						//Check if player shot the Wumpus.
+						if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomRight())
+						{
+							wumpus.damage(100);
+							print_and_wait(player_name + " shot the Wumpus!", 2, 2);
+							print_and_wait(player_name + " has slain the Wumpus!", 2, 2);
+							print_and_wait("VICTORY!", 2, 4);
+							return 0;
+						}
+
+						//Check if the Wumpus is above the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomRight()].isMonsterUp(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomLeft()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is to the right of the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomRight()].isMonsterRight(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomLeft()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is below the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomRight()].isMonsterDown(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomLeft()]);
+							has_Wumpus_moved = true;
+						}
+
+						//Check if the Wumpus is near the player when they shot.
+						else if (rooms[player.getCurrentRoom()].isMonsterUp(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterLeft(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterDown(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomLeft() == -1)
+						print_and_wait(player_name + " can't shoot right!", 2, 2);
+				break;
+
+				case 3: //Shoot down
+					if (rooms[player.getCurrentRoom()].getRoomDown() != -1)
+					{
+						print_and_wait(player_name + " shot down!", 2, 2);
+
+						//Check if player shot the Wumpus.
+						if (wumpus.getCurrentRoom() == rooms[player.getCurrentRoom()].getRoomDown())
+						{
+							wumpus.damage(100);
+							print_and_wait(player_name + " shot the Wumpus!", 2, 2);
+							print_and_wait(player_name + " has slain the Wumpus!", 2, 2);
+							print_and_wait("VICTORY!", 2, 4);
+							return 0;
+						}
+
+						//Check if the Wumpus is to the left of the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomDown()].isMonsterLeft(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomDown()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is to the right of the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomDown()].isMonsterRight(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomDown()]);
+							has_Wumpus_moved = true;
+						}
+						//Check if the Wumpus is below the room shot at.
+						else if (rooms[rooms[player.getCurrentRoom()].getRoomDown()].isMonsterDown(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[rooms[player.getCurrentRoom()].getRoomDown()]);
+							has_Wumpus_moved = true;
+						}
+
+						//Check if the Wumpus is near the player when they shot.
+						else if (rooms[player.getCurrentRoom()].isMonsterLeft(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterRight(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+						else if (rooms[player.getCurrentRoom()].isMonsterUp(wumpus))
+						{
+							wumpus.setCurrentRoom(rooms[player.getCurrentRoom()]);
+							wumpus.actOnPlayer(player);
+							print_and_wait("The Wumpus heard " + player_name + " shoot!", 2, 2);
+							print_and_wait(player_name + " was eaten by the Wumpus!", 2, 2);
+							print_and_wait("GAME OVER!", 2, 4);
+						}
+					}
+					else if (rooms[player.getCurrentRoom()].getRoomDown() == -1)
+						print_and_wait(player_name + " can't shoot down!", 2, 2);
+				break;
+			}
 		}
-		else if (player.getCurrentRoom() == hazards[1].getRoom())
+
+		/* The Wumpus will randomly move if it has not yet done so. A random
+		   integer between 0 and 3 will be pulled which will correspond to
+		   adjacent rooms up, left, right and down respectively. If the
+		   corresponding room does not exist, or if a hazard is present in
+		   the room, the Wumpus will instead not move.
+		*/
+		if (!has_Wumpus_moved)
 		{
-			hazards[1].actOnPlayer(player);
-			print_and_wait("A bird caught " + player_name + " and took them to room " + to_string(player.getCurrentRoom()), 2, 4);
+			int rand = rand_int_between(0, 3);
+			bool move = true;
+
+			switch (rand)
+			{
+				case 0:
+					if (rooms[wumpus.getCurrentRoom()].getRoomUp() != -1)
+					{
+						for (int i = 0; i < 3; ++i)
+						{
+							if (hazards[i].getRoom() == rooms[wumpus.getCurrentRoom()].getRoomUp())
+								move = false;
+						}
+
+						if (move)
+							wumpus.setCurrentRoom(rooms[rooms[wumpus.getCurrentRoom()].getRoomUp()]);
+					}
+				break;
+
+				case 1:
+					if (rooms[wumpus.getCurrentRoom()].getRoomLeft() != -1)
+					{
+						for (int i = 0; i < 3; ++i)
+						{
+							if (hazards[i].getRoom() == rooms[wumpus.getCurrentRoom()].getRoomLeft())
+								move = false;
+						}
+
+						if (move)
+							wumpus.setCurrentRoom(rooms[rooms[wumpus.getCurrentRoom()].getRoomLeft()]);
+					}
+				break;
+
+				case 2:
+					if (rooms[wumpus.getCurrentRoom()].getRoomRight() != -1)
+					{
+						for (int i = 0; i < 3; ++i)
+						{
+							if (hazards[i].getRoom() == rooms[wumpus.getCurrentRoom()].getRoomRight())
+								move = false;
+						}
+
+						if (move)
+							wumpus.setCurrentRoom(rooms[rooms[wumpus.getCurrentRoom()].getRoomRight()]);
+					}
+				break;
+
+				case 3:
+					if (rooms[wumpus.getCurrentRoom()].getRoomDown() != -1)
+					{
+						for (int i = 0; i < 3; ++i)
+						{
+							if (hazards[i].getRoom() == rooms[wumpus.getCurrentRoom()].getRoomDown())
+								move = false;
+						}
+
+						if (move)
+							wumpus.setCurrentRoom(rooms[rooms[wumpus.getCurrentRoom()].getRoomDown()]);
+					}
+				break;
+
+				default:
+				break;
+			}
 		}
-		else if (player.getCurrentRoom() == hazards[2].getRoom())
-		{
-			hazards[2].actOnPlayer(player);
-			print_and_wait(player_name + " fell in a bottomless pit!", 2, 2);
-			print_and_wait("GAME OVER", 2, 3);
-			return 0;
-		}
-		else if (player.getCurrentRoom() == wumpus.getCurrentRoom())
-		{
-			wumpus.actOnPlayer(player);
-			print_and_wait(player_name + " was eaten by the wumpus!", 2, 2);
-			print_and_wait("GAME OVER", 2, 3);
-			return 0;
-		}
+
+		has_Wumpus_moved = false;
 	}
-	//}
 
 	return 0;
 }

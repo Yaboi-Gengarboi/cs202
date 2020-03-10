@@ -1,15 +1,20 @@
 //Monster.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last updated on 3/7/2020
+//Last updated on 3/8/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #ifndef MONSTER_HPP
 #define MONSTER_HPP
 
 #include "Room.hpp"
+#include "Player.hpp"
 
 #include <string>
+
+class Room;
+
+class Player;
 
 class Monster
 {
@@ -36,7 +41,7 @@ class Monster
 
 		int getCurrentRoom() const;
 
-		void setCurrentRoom(const Room& room);
+		void setCurrentRoom(Room& room);
 
 		void actOnPlayer(Player& player);
 };

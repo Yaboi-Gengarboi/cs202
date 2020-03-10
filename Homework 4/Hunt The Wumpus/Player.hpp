@@ -11,6 +11,8 @@
 
 #include <string>
 
+class Room;
+
 class Player
 {
 	std::string _name;
@@ -37,8 +39,6 @@ class Player
 		int getCurrentRoom() const;
 
 		void setCurrentRoom(const Room& room);
-
-		bool shoot(int direction);
 };
 
 #endif //PLAYER_HPP

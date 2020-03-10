@@ -1,13 +1,14 @@
 //Monster.cpp
 //Justyn Durnford
 //Created on 3/7/2020
-//Last updated on 3/7/2020
+//Last updated on 3/8/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #include "Monster.hpp"
 #include "Room.hpp"
 #include "Player.hpp"
 #include "Hazard.hpp"
+#include "Tools.hpp"
 
 #include <string>
 using std::string;
@@ -38,7 +39,7 @@ void Monster::heal(int health)
 
 int Monster::getCurrentRoom() const { return _current_room; }
 
-void Monster::setCurrentRoom(const Room& room)
+void Monster::setCurrentRoom(Room& room)
 {
 	_current_room = room.getId();
 }

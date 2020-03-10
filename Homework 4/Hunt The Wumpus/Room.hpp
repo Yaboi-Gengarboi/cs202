@@ -1,11 +1,18 @@
 //Room.hpp
 //Justyn Durnford
 //Created on 2/20/2020
-//Last updated on 3/3/2020
+//Last updated on 3/8/2020
 //https://github.com/Yaboi-Gengarboi/cs202/tree/master/Homework%204/Hunt%20The%20Wumpus
 
 #ifndef ROOM_HPP
 #define ROOM_HPP
+
+#include "Monster.hpp"
+#include "Hazard.hpp"
+
+class Monster;
+
+class Hazard;
 
 class Room
 {
@@ -38,6 +45,16 @@ class Room
 		void setRoomDown(const Room& room);
 
 		int getId() const;
+
+		bool isMonsterUp(const Monster& monster) const;
+		bool isMonsterLeft(const Monster& monster) const;
+		bool isMonsterRight(const Monster& monster) const;
+		bool isMonsterDown(const Monster& monster) const;
+
+		bool isHazardUp(const Hazard& hazard) const;
+		bool isHazardLeft(const Hazard& hazard) const;
+		bool isHazardRight(const Hazard& hazard) const;
+		bool isHazardDown(const Hazard& hazard) const;
 };
 
 #endif
