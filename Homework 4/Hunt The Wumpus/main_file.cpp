@@ -202,7 +202,7 @@ int main()
 	//If either the player's or monster's health is at 0, the game will end.
 	while (player.getHealth() * wumpus.getHealth() != 0)
 	{
-		
+		/*
 		//DEBUG
 		cout << "Player @ Room " << player.getCurrentRoom() << endl;
 		cout << "Wumpus @ Room " << wumpus.getCurrentRoom() << endl;
@@ -210,6 +210,7 @@ int main()
 		cout << "Bird 2 @ Room " << hazards[1].getRoom() << endl;
 		cout << "Pit @ Room " << hazards[2].getRoom() << endl;
 		//DEBUG
+		*/
 
 		print_Room(rooms[player.getCurrentRoom()]);
 
