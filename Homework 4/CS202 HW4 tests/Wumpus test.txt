@@ -1,0 +1,198 @@
+What's your name?
+Justyn
+Justyn. I have heard much about you.
+
+Player @ Room 0
+Wumpus @ Room 18
+Bird 1 @ Room 11
+Bird 2 @ Room 12
+Pit @ Room 9
+  ####################
+  #                  #
+  #                  ###
+  #
+  #                  ###
+  #                  #
+  ####################
+
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Move
+Where will Justyn move?
+Select from the following options:
+Up
+Left
+Right
+Down
+Right
+Justyn moved right!
+
+Player @ Room 2
+Wumpus @ Room 18
+Bird 1 @ Room 11
+Bird 2 @ Room 12
+Pit @ Room 9
+         #    #
+  ########    ########
+  #                  #
+###                  ###
+
+###                  ###
+  #                  #
+  ########    ########
+         #    #
+
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Move
+Where will Justyn move?
+Select from the following options:
+Up
+Left
+Right
+Down
+Right
+Justyn moved right!
+
+Player @ Room 5
+Wumpus @ Room 17
+Bird 1 @ Room 11
+Bird 2 @ Room 12
+Pit @ Room 9
+         #    #
+  ########    ########
+  #                  #
+###                  ###
+
+###                  ###
+  #                  #
+  ########    ########
+         #    #
+
+Justyn feels a breeze!
+
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Move
+Where will Justyn move?
+Select from the following options:
+Up
+Left
+Right
+Down
+Up
+Justyn moved up!
+
+Player @ Room 4
+Wumpus @ Room 18
+Bird 1 @ Room 11
+Bird 2 @ Room 12
+Pit @ Room 9
+  ####################
+  #                  #
+###                  ###
+
+###                  ###
+  #                  #
+  ########    ########
+         #    #
+
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Move
+Where will Justyn move?
+Select from the following options:
+Up
+Left
+Right
+Down
+Right
+Justyn moved right!
+
+Player @ Room 8
+Wumpus @ Room 17
+Bird 1 @ Room 11
+Bird 2 @ Room 12
+Pit @ Room 9
+         #    #
+  ########    ########
+  #                  #
+###                  ###
+
+###                  ###
+  #                  #
+  ########    ########
+         #    #
+
+Justyn feels a breeze!
+
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Moove
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Right
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Move
+Where will Justyn move?
+Select from the following options:
+Up
+Left
+Right
+Down
+Right
+Justyn moved right!
+
+Player @ Room 13
+Wumpus @ Room 17
+Bird 1 @ Room 11
+Bird 2 @ Room 12
+Pit @ Room 9
+         #    #
+  ########    ########
+  #                  #
+###                  ###
+
+###                  ###
+  #                  #
+  ########    ########
+         #    #
+
+Justyn hears a flapping sound!
+
+Justyn smells a wumpus!
+
+What will Justyn do?
+Select from the following options:
+Move
+Shoot
+Shoot
+Where will Justyn shoot?
+Select from the following options:
+Up
+Left
+Right
+Down
+Right
+Justyn shot right!
+
+Justyn shot the Wumpus!
+
+Justyn has slain the Wumpus!
+
+VICTORY!
