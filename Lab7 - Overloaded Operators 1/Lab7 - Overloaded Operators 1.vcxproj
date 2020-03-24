@@ -138,10 +138,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="3DVector.hpp" />
+    <ClInclude Include="Vector3D.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="3DVector.cpp" />
+    <ClCompile Include="Vector3D.cpp" />
     <ClCompile Include="main_file.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
