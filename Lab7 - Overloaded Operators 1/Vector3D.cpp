@@ -91,17 +91,25 @@ void Vector3D::subtract(const Vector3D& vec)
 	_z -= vec.getZ();
 }
 
+Vector3D Vector3D::copy() const
+{
+	Vector3D vec(_x, _y, _z);
+	return vec;
+}
+
+Vector3D& Vector3D::operator = (const Vector3D& vec)
+{
+	_x = vec._x;
+	_y = vec._y;
+	_z = vec._z;
+	return *this;
+}
+
 void Vector3D::scale(double scalar)
 {
 	_x *= scalar;
 	_y *= scalar;
 	_z *= scalar;
-}
-
-Vector3D Vector3D::copy() const
-{
-	Vector3D vec(_x, _y, _z);
-	return vec;
 }
 
 string Vector3D::toString() const
@@ -146,5 +154,6 @@ bool operator != (const Vector3D& vec1, const Vector3D& vec2)
 
 ostream& operator << (std::ostream& os, const Vector3D& vec)
 {
+	os << vec.toString() << '\n';
 	return os;
 }

@@ -17,12 +17,12 @@ class Vector3D
 
 	public:
 
-	// Constructors.
+	// Constructors
 	Vector3D();
 	Vector3D(double x, double y, double z);
 	Vector3D(double vec_arr[3]);
 
-	// Destructor.
+	// Destructor
 	~Vector3D();
 
 	// Returns the specified value.
@@ -41,6 +41,12 @@ class Vector3D
 	// Subtracts the given Vector vec from the Vector.
 	void subtract(const Vector3D& vec);
 
+	// Returns a new copy of the Vector3D.
+	Vector3D copy() const;
+
+	// Copy operator
+	Vector3D& operator = (const Vector3D& vec);
+
 	// Multiplies the given scalar onto the Vector3D.
 	void scale(double scalar);
 
@@ -49,9 +55,6 @@ class Vector3D
 
 	// Returns the length or magnitude of the Vector.
 	double magnitude() const;
-
-	// Returns a new copy of the Vector3D.
-	Vector3D copy() const;
 
 	// Returns an std::string representation of the Vector3D.
 	std::string toString() const;
@@ -75,6 +78,7 @@ bool operator == (const Vector3D& vec1, const Vector3D& vec2);
 // Inequality operator
 bool operator != (const Vector3D& vec1, const Vector3D& vec2);
 
+// ostream operator
 std::ostream& operator << (std::ostream& os, const Vector3D& vec);
 
 #endif // VECTOR3D_HPP
