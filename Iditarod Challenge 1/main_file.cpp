@@ -21,6 +21,23 @@ int factorial_loop(int n)
     return f;
 }
 
+int fibonacci(int n)
+{
+    static int f0 = 0;
+    static int f1 = 1;
+    static int f;
+
+    if (n > 0)
+    {
+        f = f0 + f1;
+        f0 = f1;
+        f1 = f;
+        fibonacci(n - 1);
+    }
+
+    return f;
+}
+
 int main()
 {
 	return 0;
