@@ -1,7 +1,10 @@
 // main_file.cpp
 // Justyn Durnford
 // Created on 3/24/2020
-// Last updated on 3/24/2020
+// Last updated on 3/25/2020
+
+#include <iostream>
+using std::cout;
 
 int factorial(int n)
 {
@@ -23,39 +26,26 @@ int factorial_loop(int n)
 
 int fibonacci(int n)
 {
-    static int f0 = 0;
-    static int f1 = 1;
-    static int f;
+    if (n <= 1)
+        return n;
 
-    if (n > 0)
-    {
-        f = f0 + f1;
-        f0 = f1;
-        f1 = f;
-        fibonacci(n - 1);
-    }
-
-    return f;
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 int fibonacci_loop(int n)
 {
-    static int f0 = 0;
-    static int f1 = 1;
-    static int f;
+    int f0 = 0;
+    int f1 = 1;
+    int f = 0;
 
-    if (n == 0)
-        return 0;
+    if (n <= 1)
+        return n;
 
-    if (n == 1)
-        return 1;
-
-    while (n > 0)
+    for (int i = 1; i < n; ++i)
     {
         f = f0 + f1;
         f0 = f1;
         f1 = f;
-        --n;
     }
 
     return f;
@@ -63,5 +53,17 @@ int fibonacci_loop(int n)
 
 int main()
 {
+    for (int i = 1; i <= 8; ++i)
+        cout << '!' << i << " = " << factorial(i) << '\n';
+
+    for (int i = 1; i <= 8; ++i)
+        cout << '!' << i << " = " << factorial_loop(i) << '\n';
+
+    for (int i = 1; i <= 8; ++i)
+        cout << "fibonacci(" << i << ") = " << fibonacci(i) << '\n';
+
+    for (int i = 1; i <= 8; ++i)
+        cout << "fibonacci(" << i << ") = " << fibonacci_loop(i) << '\n';
+
 	return 0;
 }
