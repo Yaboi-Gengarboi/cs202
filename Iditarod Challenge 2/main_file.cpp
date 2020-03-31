@@ -1,7 +1,7 @@
 // main_file.cpp
 // Justyn Durnford
 // Created on 3/30/2020
-// Last updated on 3/30/2020
+// Last updated on 3/31/2020
 
 /* Function: ackermann
    Return type: long long
@@ -40,7 +40,6 @@ long long ackermann(int m, int n)
 
 	return -1;
 }
-
 
 int main()
 {
