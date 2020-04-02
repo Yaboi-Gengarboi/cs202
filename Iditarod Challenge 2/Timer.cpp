@@ -1,34 +1,34 @@
-// StopWatch.cpp
+// Timer.cpp
 // Justyn Durnford
 // Created on 3/31/2020
 // Last updated on 3/31/2020
 
-#include "StopWatch.hpp"
+#include "Timer.hpp"
 // <chrono>
 using std::chrono::time_point;
 using std::chrono::system_clock;
 using std::chrono::duration;
 
-StopWatch::StopWatch()
+Timer::Timer()
 {
 	_start = system_clock::now();
 }
 
-StopWatch::~StopWatch() { /* Destructor */ }
+Timer::~Timer() { /* Destructor */ }
 
-void StopWatch::start()
+void Timer::start()
 {
 	_start = system_clock::now();
 	_is_stopped = false;
 }
 
-void StopWatch::stop()
+void Timer::stop()
 {
 	_end = system_clock::now();
 	_is_stopped = true;
 }
 
-double StopWatch::seconds_passed()
+double Timer::secondsPassed()
 {
 	duration<double> time_elapsed;
 
@@ -41,7 +41,7 @@ double StopWatch::seconds_passed()
 	return time_elapsed.count();
 }
 
-double StopWatch::milliseconds_passed()
+double Timer::millisecondsPassed()
 {
 	duration<double> time_elapsed;
 

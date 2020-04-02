@@ -1,11 +1,11 @@
-// StopWatch.hpp
+// Timer.hpp
 // Justyn Durnford
 // Created on 3/31/2020
 // Last updated on 3/31/2020
 
 #include <chrono>
 
-class StopWatch
+class Timer
 {
 	std::chrono::time_point<std::chrono::system_clock> _start;
 	std::chrono::time_point<std::chrono::system_clock> _end;
@@ -14,10 +14,10 @@ class StopWatch
 	public:
 
 	//Constructor
-	StopWatch();
+	Timer();
 
 	//Destructor
-	~StopWatch();
+	~Timer();
 
 	//Sets the value of _start.
 	void start();
@@ -26,8 +26,8 @@ class StopWatch
 	void stop();
 
 	//Returns the amount of seconds that have passed.
-	double seconds_passed();
+	double secondsPassed();
 
 	//Returns the amount of milliseconds that have passed.
-	double milliseconds_passed();
+	double millisecondsPassed();
 };
