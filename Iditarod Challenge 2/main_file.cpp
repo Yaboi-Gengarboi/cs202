@@ -57,13 +57,24 @@ int ackermann(int m, int n)
 int main()
 {
 	Timer t;
+	
+
+	t.start();
+	int a = ackermann(4, 0);
+	t.stop();
+	cout << a << nl;
+	cout << t.millisecondsPassed() << nl;
+
+	t.start();
+	int a = ackermann(3, 8);
+	t.stop();
+	cout << a << nl;
+	cout << t.millisecondsPassed() << nl;
 
 	t.start();
 	int a = ackermann(2, 2009);
 	t.stop();
-
 	cout << a << nl;
-
 	cout << t.millisecondsPassed() << nl;
 
 	return 0;
