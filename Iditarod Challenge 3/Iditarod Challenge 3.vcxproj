@@ -140,6 +140,9 @@
   <ItemGroup>
     <ClCompile Include="IDC3_main_file.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CityNode.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
