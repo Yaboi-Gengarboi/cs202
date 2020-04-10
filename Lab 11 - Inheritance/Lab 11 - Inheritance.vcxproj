@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{3C8A4E4E-03C8-491C-B4A1-89CB4034FBBE}</ProjectGuid>
-    <RootNamespace>IditarodChallenge3</RootNamespace>
+    <ProjectGuid>{504E9668-D030-4EDF-8133-0A06A0C3F1CC}</ProjectGuid>
+    <RootNamespace>Lab11Inheritance</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -138,11 +138,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CityNode.cpp" />
-    <ClCompile Include="IDC3_main_file.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CityNode.hpp" />
+    <ClCompile Include="lab11_main_file.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

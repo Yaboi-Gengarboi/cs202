@@ -15,16 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IDC3_main_file.cpp">
+    <ClCompile Include="lab11_main_file.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CityNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CityNode.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
