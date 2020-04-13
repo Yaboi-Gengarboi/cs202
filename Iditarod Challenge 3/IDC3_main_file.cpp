@@ -8,9 +8,6 @@
 // #include <vector>
 using std::to_string;
 
-#include <iostream>
-using std::cout;
-
 int main()
 {
 	CityList cList("usa13509.tsp", 100);
