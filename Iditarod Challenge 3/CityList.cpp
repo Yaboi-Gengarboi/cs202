@@ -8,6 +8,10 @@
 // #include <string>
 // #include <vector>
 
+#include <cmath>
+using std::pow;
+using std::sqrt;
+
 CityList::CityList(const char* fileName, const unsigned int& cityCount)
     : _fileName(fileName), _cityCount(cityCount)
 {
@@ -53,7 +57,17 @@ const unsigned int CityList::cityCount() const
 
 double CityList::distance(const unsigned int& first, const unsigned int& second) const
 {
-    double distance = 0;
+    double distance = -1;
+
+    if (first == second)
+        return 0;
+
+    if (first >= _cityCount || second >= _cityCount)
+        return -1;
+
+    distance = pow(( _list[second].X() - _list[first].X() ), 2);
+    distance += pow(( _list[second].Y() - _list[first].Y() ), 2);
+    distance = sqrt(distance);
 
     return distance;
 }

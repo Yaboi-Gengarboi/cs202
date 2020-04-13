@@ -18,5 +18,7 @@ int main()
 	for (unsigned int i = 0; i < 100; ++i)
 		println(to_string(cList[i].Latitude()) + "   " + to_string(cList[i].Longitude()));
 
+	println(to_string(cList.distance(0, 99)));
+
 	return 0;
 }
