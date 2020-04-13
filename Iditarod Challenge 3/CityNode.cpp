@@ -9,7 +9,6 @@ using std::string;
 using std::to_string;
 using std::getline;
 using std::stoul;
-using std::stod;
 
 #include <sstream>
 using std::istringstream;
