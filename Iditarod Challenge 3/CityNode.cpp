@@ -1,7 +1,7 @@
 // CityNode.cpp
 // Justyn Durnford
 // Created on 4/8/2020
-// Last updated on 4/11/2020
+// Last updated on 4/12/2020
 
 #include "CityNode.hpp"
 // #include <string>
@@ -10,6 +10,9 @@ using std::to_string;
 using std::getline;
 using std::stoul;
 using std::stod;
+
+#include <sstream>
+using std::istringstream;
 
 #include <fstream>
 using std::ifstream;
@@ -26,13 +29,12 @@ void println(const string& str)
 }
 
 
-/* // DEBUG
+ // DEBUG
 void printGetLine(ifstream& fin, string& str)
 {
 	getline(fin, str);
 	println(str);
 }
-*/
 
 CityNode::CityNode() { /* Default constructor */ }
 
@@ -72,22 +74,21 @@ CityNode::CityNode(const string& fileName, unsigned int number)
 			{
 				getline(fin, line);
 				// printGetLine(fin, line); // DEBUG
-				str = line.substr(0, line.find(' '));
-				// println(str); // DEBUG
-				num = stoul(str);
+				istringstream istr(line);
+				istr >> num;
+				// println(to_string(num)); // DEBUG
+
+				if (num == number)
+				{
+					istr >> _latitude;
+					// println(to_string(_latitude)); // DEBUG
+					_graphY = _latitude;
+
+					istr >> _longitude;
+					// println(to_string(_longitude)); // DEBUG
+					_graphX = _longitude;
+				}
 			}
-
-			str = line.substr(line.find(' ') + 1);
-			println(str); // DEBUG
-
-			println(str.substr(0, str.find(' '))); // DEBUG
-			_latitude = stod(str.substr(0, str.find(' ')));
-			
-			str = str.substr(str.find(' ') + 1);
-			println(str); // DEBUG
-
-			println(str.substr(0, str.find(' '))); // DEBUG
-			_longitude = stod(str.substr(0, str.find(' ')));
 		}
 	}
 }
