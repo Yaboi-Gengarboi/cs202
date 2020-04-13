@@ -35,9 +35,7 @@ void printGetLine(ifstream& fin, string& str)
 	println(str);
 }
 
-CityNode::CityNode() { /* Default constructor */ }
-
-CityNode::CityNode(const string& fileName, unsigned int number)
+CityNode::CityNode(const char* fileName, unsigned int number)
 {
 	ifstream fin(fileName);
 
@@ -94,7 +92,7 @@ CityNode::CityNode(const string& fileName, unsigned int number)
 
 CityNode::~CityNode() { /* Destructor */ }
 
-string CityNode::getFileName() const
+const char* CityNode::getFileName() const
 {
 	return _fileName;
 }

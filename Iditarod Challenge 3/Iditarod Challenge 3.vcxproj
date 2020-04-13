@@ -138,10 +138,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CityList.cpp" />
     <ClCompile Include="CityNode.cpp" />
     <ClCompile Include="IDC3_main_file.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CityList.hpp" />
     <ClInclude Include="CityNode.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

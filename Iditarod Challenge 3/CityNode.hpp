@@ -6,14 +6,14 @@
 #ifndef CITYNODE_HPP
 #define CITYNODE_HPP
 
-#include <string>
+#include <string> // std::string
 
 // DEBUG
 void println(const std::string& str);
 
 class CityNode
 {
-	std::string _fileName = "";
+	const char* _fileName;
 	unsigned int _number = 0;
 	double _latitude = 0;
 	double _longitude = 0;
@@ -22,12 +22,11 @@ class CityNode
 
 	public:
 
-	CityNode();
-	CityNode(const std::string& fileName, unsigned int number);
+	CityNode(const char* fileName, unsigned int number);
 
 	~CityNode();
 
-	std::string getFileName() const;
+	const char* getFileName() const;
 	unsigned int Number() const;
 	double Latitude() const;
 	double Longitude() const;
