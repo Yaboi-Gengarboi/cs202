@@ -1,7 +1,7 @@
 // CityNode.hpp
 // Justyn Durnford
 // Created on 4/6/2020
-// Last updated on 4/11/2020
+// Last updated on 4/16/2020
 
 #ifndef CITYNODE_HPP
 #define CITYNODE_HPP
@@ -21,7 +21,7 @@ class CityNode
 
 	~CityNode();
 
-	const char* getFileName() const;
+	const char* fileName() const;
 	unsigned int Number() const;
 	double Latitude() const;
 	double Longitude() const;

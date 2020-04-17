@@ -1,7 +1,7 @@
 // CityNode.cpp
 // Justyn Durnford
 // Created on 4/8/2020
-// Last updated on 4/12/2020
+// Last updated on 4/16/2020
 
 #include "CityNode.hpp"
 // #include <string>
@@ -74,7 +74,7 @@ CityNode::CityNode(const char* fileName, unsigned int number)
 
 CityNode::~CityNode() { /* Destructor */ }
 
-const char* CityNode::getFileName() const
+const char* CityNode::fileName() const
 {
 	return _fileName;
 }
