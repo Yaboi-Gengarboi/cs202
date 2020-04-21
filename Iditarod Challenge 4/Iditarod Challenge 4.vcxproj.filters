@@ -44,5 +44,8 @@
     <ClInclude Include="CityPath.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TSP_Solver.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
