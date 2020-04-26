@@ -1,7 +1,7 @@
 // CityList.hpp
 // Justyn Durnford
 // Created on 4/12/2020
-// Last updated on 4/16/2020
+// Last updated on 4/24/2020
 
 #ifndef CITYLIST_HPP
 #define CITYLIST_HPP
@@ -13,7 +13,7 @@
 class CityList
 {
 	const char* _fileName;
-	const unsigned int _cityCount;
+	unsigned int _cityCount;
 	std::vector<CityNode> _list;
 
 	void addCity(unsigned int number);
@@ -21,6 +21,8 @@ class CityList
 	public:
 
 	CityList(const char* fileName, unsigned int cityCount);
+
+	CityList(const CityList& cList);
 
 	~CityList();
 
@@ -30,7 +32,9 @@ class CityList
 
 	const char* fileName() const;
 
-	const unsigned int cityCount() const;
+	unsigned int cityCount() const;
+
+	void removeCity(unsigned int index);
 
 	double distance(unsigned int first, unsigned int second) const;
 };

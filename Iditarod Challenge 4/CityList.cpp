@@ -1,11 +1,9 @@
 // CityList.cpp
 // Justyn Durnford
 // Created on 4/12/2020
-// Last updated on 4/16/2020
+// Last updated on 4/25/2020
 
 #include "CityList.hpp"
-// #include "CityNode.hpp"
-// #include <string>
 // #include <vector>
 
 #include <cmath>
@@ -15,7 +13,14 @@ using std::sqrt;
 CityList::CityList(const char* fileName, unsigned int cityCount)
     : _fileName(fileName), _cityCount(cityCount)
 {
-    for (unsigned int i = 1; i <= cityCount; ++i)
+    for (unsigned int i = 1; i <= _cityCount; ++i)
+        addCity(i);
+}
+
+CityList::CityList(const CityList& cList)
+    : _fileName(cList.fileName()), _cityCount(cList.cityCount())
+{
+    for (unsigned int i = 1; i <= _cityCount; ++i)
         addCity(i);
 }
 
@@ -50,9 +55,14 @@ const char* CityList::fileName() const
     return _fileName;
 }
 
-const unsigned int CityList::cityCount() const
+unsigned int CityList::cityCount() const
 {
     return _cityCount;
+}
+
+void CityList::removeCity(unsigned int index)
+{
+    _list.erase(_list.begin() + index);
 }
 
 double CityList::distance(unsigned int first, unsigned int second) const

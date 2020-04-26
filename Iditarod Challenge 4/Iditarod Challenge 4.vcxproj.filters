@@ -21,21 +21,18 @@
     <ClCompile Include="CityNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CityList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CityPath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TSP_Solver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CityNode.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CityList.hpp">

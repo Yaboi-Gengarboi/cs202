@@ -1,10 +1,11 @@
 // CityNode.cpp
 // Justyn Durnford
 // Created on 4/8/2020
-// Last updated on 4/16/2020
+// Last updated on 4/25/2020
 
 #include "CityNode.hpp"
-// #include <string>
+
+#include <string>
 using std::string;
 using std::to_string;
 using std::getline;
@@ -16,6 +17,9 @@ using std::istringstream;
 #include <fstream>
 using std::ifstream;
 
+#include <iostream>
+using std::cout;
+using std::endl;
 
 CityNode::CityNode(const char* fileName, unsigned int number)
 {
@@ -32,7 +36,6 @@ CityNode::CityNode(const char* fileName, unsigned int number)
 		while (line.find("DIMENSION") == -1)
 		{
 			getline(fin, line);
-			// printGetLine(fin, line); // DEBUG
 		}
 
 		str = line.substr(12);
@@ -42,32 +45,27 @@ CityNode::CityNode(const char* fileName, unsigned int number)
 		{
 			while (line != "NODE_COORD_SECTION")
 			{
-				// println(line); // DEBUG
 				getline(fin, line);
-				// printGetLine(fin, line); // DEBUG
 			}
 
 			unsigned int num = -1;
 
-			while (num != number)
+			for (unsigned int i = 1; i < number; ++i)
 			{
-				getline(fin, line);
-				// printGetLine(fin, line); // DEBUG
-				istringstream istr(line);
-				istr >> num;
-				// println(to_string(num)); // DEBUG
-
-				if (num == number)
-				{
-					istr >> _latitude;
-					// println(to_string(_latitude)); // DEBUG
-					_graphY = _latitude;
-
-					istr >> _longitude;
-					// println(to_string(_longitude)); // DEBUG
-					_graphX = _longitude;
-				}
+				fin.ignore(256, '\n');
 			}
+				
+			getline(fin, line);
+			istringstream istr(line);
+			istr >> num;
+
+			cout << num << endl;
+
+			istr >> _latitude;
+			_graphY = _latitude;
+
+			istr >> _longitude;
+			_graphX = _longitude;
 		}
 	}
 }
