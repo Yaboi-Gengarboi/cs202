@@ -24,6 +24,8 @@ class CityPath
 
 	unsigned int getCityID(unsigned int index) const;
 
+	unsigned int size() const;
+
 	void print() const;
 };
 

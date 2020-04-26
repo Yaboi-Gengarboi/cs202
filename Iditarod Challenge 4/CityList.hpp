@@ -1,7 +1,7 @@
 // CityList.hpp
 // Justyn Durnford
 // Created on 4/12/2020
-// Last updated on 4/24/2020
+// Last updated on 4/26/2020
 
 #ifndef CITYLIST_HPP
 #define CITYLIST_HPP
@@ -21,8 +21,6 @@ class CityList
 	public:
 
 	CityList(const char* fileName, unsigned int cityCount);
-
-	CityList(const CityList& cList);
 
 	~CityList();
 

@@ -1,7 +1,7 @@
 // CityNode.cpp
 // Justyn Durnford
 // Created on 4/8/2020
-// Last updated on 4/25/2020
+// Last updated on 4/26/2020
 
 #include "CityNode.hpp"
 
@@ -17,18 +17,12 @@ using std::istringstream;
 #include <fstream>
 using std::ifstream;
 
-#include <iostream>
-using std::cout;
-using std::endl;
-
 CityNode::CityNode(const char* fileName, unsigned int number)
 {
 	ifstream fin(fileName);
 
 	if (fin.good())
 	{
-		// println("fin.good"); // DEBUG
-
 		_fileName = fileName;
 		string line = "";
 		string str = "";
@@ -43,6 +37,8 @@ CityNode::CityNode(const char* fileName, unsigned int number)
 
 		if (number <= dimension && number != 0)
 		{
+			_number = number;
+
 			while (line != "NODE_COORD_SECTION")
 			{
 				getline(fin, line);
@@ -58,8 +54,6 @@ CityNode::CityNode(const char* fileName, unsigned int number)
 			getline(fin, line);
 			istringstream istr(line);
 			istr >> num;
-
-			cout << num << endl;
 
 			istr >> _latitude;
 			_graphY = _latitude;
