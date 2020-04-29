@@ -19,7 +19,7 @@ using std::ifstream;
 
 CityNode::CityNode(const string& fileName, unsigned int number)
 {
-	ifstream fin("TSP Files/" + fileName);
+	ifstream fin("TSP Files\\" + fileName);
 
 	if (fin.good())
 	{
