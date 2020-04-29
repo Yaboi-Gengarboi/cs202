@@ -1,11 +1,11 @@
 // CityNode.cpp
 // Justyn Durnford
 // Created on 4/8/2020
-// Last updated on 4/26/2020
+// Last updated on 4/28/2020
 
 #include "CityNode.hpp"
 
-#include <string>
+// #include <string>
 using std::string;
 using std::to_string;
 using std::getline;
@@ -17,7 +17,7 @@ using std::istringstream;
 #include <fstream>
 using std::ifstream;
 
-CityNode::CityNode(const char* fileName, unsigned int number)
+CityNode::CityNode(const string& fileName, unsigned int number)
 {
 	ifstream fin(fileName);
 
@@ -50,7 +50,7 @@ CityNode::CityNode(const char* fileName, unsigned int number)
 			{
 				fin.ignore(256, '\n');
 			}
-				
+
 			getline(fin, line);
 			istringstream istr(line);
 			istr >> num;
@@ -66,7 +66,7 @@ CityNode::CityNode(const char* fileName, unsigned int number)
 
 CityNode::~CityNode() { /* Destructor */ }
 
-const char* CityNode::fileName() const
+string CityNode::fileName() const
 {
 	return _fileName;
 }

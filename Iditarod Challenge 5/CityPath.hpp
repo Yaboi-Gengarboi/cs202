@@ -1,12 +1,14 @@
 // CityPath.hpp
 // Justyn Durnford
 // Created on 4/16/2020
-// Last updated on 4/25/2020
+// Last updated on 4/28/2020
 
 #ifndef CITYPATH_HPP
 #define CITYPATH_HPP
 
 #include "CityNode.hpp"
+
+// #include <string>
 
 #include <vector>
 
@@ -20,7 +22,7 @@ class CityPath
 
 	~CityPath();
 
-	void addCity(const CityNode& c);
+	void addCity(const CityNode& cNode);
 
 	unsigned int getCityID(unsigned int index) const;
 

@@ -1,19 +1,23 @@
 // CityList.cpp
 // Justyn Durnford
 // Created on 4/12/2020
-// Last updated on 4/26/2020
+// Last updated on 4/28/2020
 
 #include "CityList.hpp"
+
+// #include <string>
+using std::string;
+
 // #include <vector>
 
 #include <cmath>
 using std::pow;
 using std::sqrt;
 
-CityList::CityList(const char* fileName, unsigned int cityCount)
-    : _fileName(fileName), _cityCount(cityCount)
+CityList::CityList(const string& fileName, unsigned int size)
 {
-    for (unsigned int i = 1; i <= _cityCount; ++i)
+    _fileName = fileName;
+    for (unsigned int i = 1; i <= size; ++i)
         addCity(i);
 }
 
@@ -27,36 +31,22 @@ void CityList::addCity(unsigned int number)
 
 CityNode CityList::getCity(unsigned int index) const
 {
-    if (index <= _cityCount)
-        return _list[index];
-
-    else
-        return _list[_cityCount];
+    return _list[index];
 }
 
-CityNode CityList::operator [] (unsigned int index) const
-{
-    if (index <= _cityCount)
-        return _list[index];
-
-    else
-        return _list[_cityCount];
-}
-
-const char* CityList::fileName() const
+string CityList::fileName() const
 {
     return _fileName;
 }
 
-unsigned int CityList::cityCount() const
+unsigned int CityList::size() const
 {
-    return _cityCount;
+    return _list.size();
 }
 
 void CityList::removeCity(unsigned int index)
 {
     _list.erase(_list.begin() + index);
-    --_cityCount;
 }
 
 double CityList::distance(unsigned int first, unsigned int second) const
@@ -66,7 +56,7 @@ double CityList::distance(unsigned int first, unsigned int second) const
     if (first == second)
         return 0;
 
-    if (first >= _cityCount || second >= _cityCount)
+    if (first >= _list.size() || second >= _list.size())
         return -1;
 
     distance = pow(( _list[second].X() - _list[first].X() ), 2);

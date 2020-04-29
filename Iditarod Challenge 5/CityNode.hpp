@@ -1,14 +1,16 @@
 // CityNode.hpp
 // Justyn Durnford
 // Created on 4/6/2020
-// Last updated on 4/16/2020
+// Last updated on 4/28/2020
 
 #ifndef CITYNODE_HPP
 #define CITYNODE_HPP
 
+#include <string>
+
 class CityNode
 {
-	const char* _fileName;
+	std::string _fileName = "";
 	unsigned int _number = 0;
 	double _latitude = 0;
 	double _longitude = 0;
@@ -17,11 +19,11 @@ class CityNode
 
 	public:
 
-	CityNode(const char* fileName, unsigned int number);
+	CityNode(const std::string& fileName, unsigned int number);
 
 	~CityNode();
 
-	const char* fileName() const;
+	std::string fileName() const;
 	unsigned int Number() const;
 	double Latitude() const;
 	double Longitude() const;

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IDC4_main.cpp">
+    <ClCompile Include="IDC5_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CityNode.cpp">

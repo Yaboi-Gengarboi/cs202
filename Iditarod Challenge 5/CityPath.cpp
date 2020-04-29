@@ -1,9 +1,10 @@
 // CityPath.cpp
 // Justyn Durnford
 // Created on 4/16/2020
-// Last updated on 4/26/2020
+// Last updated on 4/28/2020
 
 #include "CityPath.hpp"
+
 // #include <vector>
 using std::vector;
 
@@ -11,13 +12,13 @@ using std::vector;
 using std::cout;
 using std::endl;
 
-CityPath::CityPath() { }
+CityPath::CityPath() {}
 
-CityPath::~CityPath() { }
+CityPath::~CityPath() {}
 
-void CityPath::addCity(const CityNode& c)
+void CityPath::addCity(const CityNode& cNode)
 {
-	_path.push_back(c.Number());
+	_path.push_back(cNode.Number());
 }
 
 unsigned int CityPath::getCityID(unsigned int index) const
