@@ -17,6 +17,11 @@ using std::to_string;
 using std::cout;
 using std::endl;
 
+void println()
+{
+	cout << endl;
+}
+
 void println(const string& str)
 {
 	cout << str << endl;
@@ -30,7 +35,6 @@ int main()
 	println("Reading TSP file " + file + "...");
 	timer.start();
 	CityList cList1(file, 13509);
-	timer.stop();
 	println("Read TSP file " + file + '.');
 	println(timer.toString());
 
@@ -42,7 +46,12 @@ int main()
 	println(timer.toString());
 
 	for (unsigned int i = 0; i < cPath1.size(); ++i)
-		println(to_string(cPath1.getCityID(i)));
+	{
+		cout << cPath1.getCityID(i) << " ";
+		if (i % 10 == 0 && i != 0)
+			println();
+	}
 
+	timer.stop();
 	return 0;
 }
