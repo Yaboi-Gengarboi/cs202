@@ -142,12 +142,14 @@
     <ClCompile Include="CityNode.cpp" />
     <ClCompile Include="CityPath.cpp" />
     <ClCompile Include="IDC5_main.cpp" />
+    <ClCompile Include="Jtimer.cpp" />
     <ClCompile Include="TSP_Solver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CityList.hpp" />
     <ClInclude Include="CityNode.hpp" />
     <ClInclude Include="CityPath.hpp" />
+    <ClInclude Include="Jtimer.hpp" />
     <ClInclude Include="TSP_Solver.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

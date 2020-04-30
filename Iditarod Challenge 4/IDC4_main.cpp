@@ -12,19 +12,12 @@
 // #include <string>
 using std::string;
 using std::to_string;
-using std::stoi;
-
-#include <fstream>
-using std::ifstream;
 
 #include <iostream>
 using std::cout;
 using std::endl;
 
-#include <stdexcept>
-using std::invalid_argument;
-
-void println(const std::string& str)
+void println(const string& str)
 {
 	cout << str << endl;
 }
